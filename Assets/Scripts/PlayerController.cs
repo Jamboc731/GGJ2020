@@ -17,21 +17,39 @@ public class PlayerController : MonoBehaviour
     private Vector3 V3_screenNormalizationScale;
     private Vector3 V3_playAreaBound;
 
+    private RaycastHit hit;
+
     #endregion
 
     private void Start()
     {
+
+        Screen.orientation = ScreenOrientation.Portrait;
+
         V3_screenNormalizationScale = new Vector3(((float)1 / Screen.width), ((float)1/Screen.height), 0);
         V3_playAreaBound = new Vector3(f_playWidth, f_playHeight, 1);
+        
     }
 
     private void Update()
     {
-        if (Input.touchCount > 0) goA_touchPoints[Input.touches[0].fingerId].transform.position = Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound);
-        if (Input.touchCount > 1) goA_touchPoints[Input.touches[1].fingerId].transform.position = Vector3.Scale(NormaliseTouchInput(Input.touches[1].position), V3_playAreaBound);
+        if (Input.touchCount > 0)
+        {
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.touches[0].position), out hit, 200))
+            {
+                ControlPoint c = hit.collider.gameObject.GetComponent<ControlPoint>();
+                if (c != null) 
+                {
+                    Debug.Log("hit control");
+                    c.SetPosition(Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound));
+                }
+            }
+        }
+        //if (Input.touchCount > 0) goA_touchPoints[Input.touches[0].fingerId + 1].transform.position = Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound);
+        //if (Input.touchCount > 1) goA_touchPoints[Input.touches[1].fingerId].transform.position = Vector3.Scale(NormaliseTouchInput(Input.touches[1].position), V3_playAreaBound);
 
-        //if(Input.touchCount > 0) Debug.Log("0 - " + Input.touches[0].fingerId);
-        //if(Input.touchCount > 1) Debug.Log("1 - " + Input.touches[1].fingerId);
+        //goA_touchPoints[0].transform.position = new Vector3((f_playWidth / 2) + (f_playWidth / 2) * Input.acceleration.x, f_playHeight / 2, 0);
+
 
     }
 
