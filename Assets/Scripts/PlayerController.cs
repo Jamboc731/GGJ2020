@@ -8,16 +8,19 @@ public class PlayerController : MonoBehaviour
     #region SerializedVariables
 
     [SerializeField] private GameObject[] goA_touchPoints;
-    [SerializeField] private Camera cam;
+    [SerializeField] private Camera orthCam;
+    [SerializeField] private Camera perspCam;
     [SerializeField] private float f_playWidth;
     [SerializeField] private float f_playHeight;
+    [SerializeField] private LayerMask controlPointMask;
 
     #endregion
 
     #region PrivateVariables
+
+    private ControlPoint currentControlPoint;
     private Vector3 V3_screenNormalizationScale;
     private Vector3 V3_playAreaBound;
-
     private RaycastHit hit;
     private Ray ray;
 
@@ -28,33 +31,50 @@ public class PlayerController : MonoBehaviour
 
         Screen.orientation = ScreenOrientation.Portrait;
 
-        V3_screenNormalizationScale = new Vector3(((float)1 / Screen.width), ((float)1/Screen.height), 0);
+        V3_screenNormalizationScale = new Vector3(((float)1 / Screen.width), ((float)1 / Screen.height), 0);
         V3_playAreaBound = new Vector3(f_playWidth, f_playHeight, 1);
-        
+
     }
 
     private void Update()
     {
         if (Input.touchCount > 0)
         {
-            ray = cam.ScreenPointToRay(Input.touches[0].position);
-            Debug.DrawRay(ray.origin, ray.direction * 15, Color.red);
-            if (Physics.Raycast(ray, out hit, 200))
+            //ray = perspCam.ScreenPointToRay(Input.touches[0].position);
+            //Debug.DrawRay(ray.origin, ray.direction * 15, Color.blue);
+
+            ray = orthCam.ScreenPointToRay(Input.touches[0].position);
+            //Debug.DrawRay(ray.origin, ray.direction * 15, Color.red);
+
+            #region new
+
+            if (Input.touches[0].phase == TouchPhase.Began)
             {
-                ControlPoint c = hit.collider.gameObject.GetComponent<ControlPoint>();
-                if (c != null) 
-                {
-                    //Debug.Log(Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound));
-                    c.SetPosition(Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound));
-                    //c.SetPosition(Vector3.one);
-                }
+                if (Physics.Raycast(ray, out hit, 20, controlPointMask)) currentControlPoint = hit.collider.GetComponent<ControlPoint>();
             }
+
+            if(currentControlPoint != null)
+            {
+                currentControlPoint.SetPosition(Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound));
+            }
+            #endregion
+
+            #region old
+            //if (Physics.Raycast(ray, out hit, 200, controlPointMask))
+            //{
+            //    ControlPoint c = hit.collider.gameObject.GetComponent<ControlPoint>();
+            //    if (c != null) 
+            //    {
+            //        //Debug.Log(Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound));
+
+            //        c.SetPosition(Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound));
+            //        //c.SetPosition(Vector3.one);
+            //    }
+            //}
+            #endregion
+
         }
-        //if (Input.touchCount > 0) goA_touchPoints[Input.touches[0].fingerId + 1].transform.position = Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound);
-        //if (Input.touchCount > 1) goA_touchPoints[Input.touches[1].fingerId].transform.position = Vector3.Scale(NormaliseTouchInput(Input.touches[1].position), V3_playAreaBound);
-
-        //goA_touchPoints[0].transform.position = new Vector3((f_playWidth / 2) + (f_playWidth / 2) * Input.acceleration.x, f_playHeight / 2, 0);
-
+        else currentControlPoint = null;
 
     }
 
