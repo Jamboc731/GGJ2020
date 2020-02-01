@@ -124,10 +124,9 @@ public class ControlPoint : MonoBehaviour
         v3_distortPoint = v3_targetPoint + (Random.insideUnitSphere * f_contraint);
     }
 
-    private Vector3 RandomizedDrifting()
+    public void RandomizedDrifting()
     {
-        Vector3 v3_driftPoint;
-        return v3_driftPoint = transform.position + (Random.insideUnitSphere) * f_driftDelta;
+        rb.AddForce(new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0.0f).normalized * f_driftDelta, ForceMode.Impulse);
     }
 
 }
