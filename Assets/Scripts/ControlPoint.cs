@@ -21,27 +21,34 @@ public class ControlPoint : MonoBehaviour
     /// Point to distort the bone to.
     /// </summary>
     private Vector3 v3_distortPoint;
+    public bool b_Distorting { get { return b_distorting; } set { b_distorting = value; } }
     /// <summary>
     /// Toggle for if the face is currently distorting
     /// </summary>
-    public bool b_Distorting { get { return b_distorting; } set { b_distorting = value; } }
     private bool b_distorting;
     [SerializeField]
-    private Transform[] hb_bones;
+    private Transform[] t_bones;
     /// <summary>
     /// Bone weights are how far you wish to move the bones via.
     /// </summary>
     [SerializeField]
     private float[] boneWeights;
+    [SerializeField]
+    private float f_maxDistance;
+
+    private bool drifitng;
+    private Vector3 v3_pointStart;
     private Vector3[] v3_origins;
     #endregion
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        v3_origins = new Vector3[hb_bones.Length];
-        for (int i = 0; i < hb_bones.Length; i++)
-            v3_origins[i] = hb_bones[i].position;
+        v3_origins = new Vector3[t_bones.Length];
+        v3_pointStart = transform.position;
+        gameObject.layer = 9;
+        for (int i = 0; i < t_bones.Length; i++)
+            v3_origins[i] = t_bones[i].position;
     }
 
     // Update is called once per frame
@@ -49,17 +56,35 @@ public class ControlPoint : MonoBehaviour
     {
         #region Distortion check
         if (rb.position != v3_distortPoint && b_distorting)
-            SetPosition(v3_distortPoint);
+            SetPosition();
         else if (rb.position == v3_distortPoint && b_distorting)
             b_distorting = false;
         #endregion
     }
 
+    /// <summary>
+    /// Set control point to delta, clamping via a max distance
+    /// </summary>
+    /// <param name="_v3_delta">Point to move to</param>
     public void SetPosition(Vector3 _v3_delta)
     {
-        rb.MovePosition(_v3_delta);
-        for (int i = 0; i < hb_bones.Length; i++)
-            hb_bones[i].position = v3_origins[i] + (transform.position - v3_origins[i]) * boneWeights[i];
+
+        float targetMag = (_v3_delta - v3_pointStart).magnitude;
+        if (targetMag > f_maxDistance)
+            rb.position = v3_pointStart + (_v3_delta - v3_pointStart).normalized * f_maxDistance;
+        else
+            rb.position = _v3_delta;
+        for (int i = 0; i < t_bones.Length; i++)
+            t_bones[i].position = v3_origins[i] + (transform.position - v3_origins[i]) * boneWeights[i];
+    }
+    /// <summary>
+    /// Set control point position to distort point using lerp
+    /// </summary>
+    public void SetPosition()
+    {
+        rb.position = Vector3.Lerp(rb.position, v3_distortPoint, 0.98f);
+        for (int i = 0; i < t_bones.Length; i++)
+            t_bones[i].position = v3_origins[i] + (transform.position - v3_origins[i]) * boneWeights[i];
     }
 
     /// <summary>
