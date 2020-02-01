@@ -8,13 +8,16 @@ public class GameManager : MonoBehaviour
     public GameStates gameState;
     public Character levelCharacter;
     #endregion
-
     #region Level SO Variables
     [SerializeField] private LevelSO[] so_levels;
     [SerializeField] private ControlPoint[] controlPoints;
 
     private GameObject background;
+    [TextArea] private string[] s_storyTexts;
     #endregion
+    [SerializeField] [TextArea] private string s_textToShow;
+    [SerializeField] [TextArea] private string s_errorText;
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +31,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void LoadLevel(int _i_levelID)
+    public bool LoadLevel(int _i_levelID)
     {
         // Load in parameters for the level
         LevelSO levelToLoad = null;
@@ -37,14 +40,24 @@ public class GameManager : MonoBehaviour
                 levelToLoad = level;
         if (levelToLoad != null)
         {
+            // Set the level background and all the bones target points
             background = levelToLoad.backgroundObject;
             levelCharacter = levelToLoad.character;
+            s_storyTexts = levelToLoad.texts;
             for (int i = 0; i < levelToLoad.boneOrigins.Length; i++)
             {
                 controlPoints[i].v3_TargetPoint = levelToLoad.boneOrigins[i];
             }
-
+            return true;
         }
+        else
+            s_textToShow = s_errorText;
+            return false;
 
+    }
+
+    public void SelectStoryText()
+    {
+        s_textToShow = s_storyTexts[Random.Range(0, s_storyTexts.Length)];
     }
 }
