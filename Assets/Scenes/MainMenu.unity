@@ -595,7 +595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b766f482a4478fd43b1dbb682525ebc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  c_tempCharacter: 1
+  c_tempCharacter: 0
   cA_characterArray: 0000000001000000020000000300000004000000050000000600000007000000
   ciA_characterInfoArray:
   - i_voiceClip: 0

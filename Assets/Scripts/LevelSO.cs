@@ -19,7 +19,7 @@ public enum Character
     john,
     bart,
     brett,
-    liouse,
+    louise,
     nat,
     byron,
     jame,
