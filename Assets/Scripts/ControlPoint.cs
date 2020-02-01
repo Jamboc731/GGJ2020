@@ -27,28 +27,28 @@ public class ControlPoint : MonoBehaviour
     /// </summary>
     private bool b_distorting;
     [SerializeField]
-    private Transform[] t_bones;
+    private Transform[] tA_bones;
     /// <summary>
     /// Bone weights are how far you wish to move the bones via.
     /// </summary>
     [SerializeField]
-    private float[] boneWeights;
+    private float[] fA_boneWeights;
     [SerializeField]
     private float f_maxDistance;
 
     private bool drifitng;
     private Vector3 v3_pointStart;
-    private Vector3[] v3_origins;
+    private Vector3[] v3A_origins;
     #endregion
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        v3_origins = new Vector3[t_bones.Length];
+        v3A_origins = new Vector3[tA_bones.Length];
         v3_pointStart = transform.position;
         gameObject.layer = 9;
-        for (int i = 0; i < t_bones.Length; i++)
-            v3_origins[i] = t_bones[i].position;
+        for (int i = 0; i < tA_bones.Length; i++)
+            v3A_origins[i] = tA_bones[i].position;
     }
 
     // Update is called once per frame
@@ -71,11 +71,13 @@ public class ControlPoint : MonoBehaviour
 
         float targetMag = (_v3_delta - v3_pointStart).magnitude;
         if (targetMag > f_maxDistance)
-            rb.position = v3_pointStart + (_v3_delta - v3_pointStart).normalized * f_maxDistance;
+        {
+            rb.position = new Vector3((v3_pointStart + (_v3_delta - v3_pointStart).normalized * f_maxDistance).x, (v3_pointStart + (_v3_delta - v3_pointStart).normalized * f_maxDistance).y, v3_pointStart.z);
+        }
         else
-            rb.position = _v3_delta;
-        for (int i = 0; i < t_bones.Length; i++)
-            t_bones[i].position = v3_origins[i] + (transform.position - v3_origins[i]) * boneWeights[i];
+            rb.position = new Vector3(_v3_delta.x, _v3_delta.y, v3_pointStart.z);
+        for (int i = 0; i < tA_bones.Length; i++)
+            tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
     }
     /// <summary>
     /// Set control point position to distort point using lerp
@@ -83,8 +85,8 @@ public class ControlPoint : MonoBehaviour
     public void SetPosition()
     {
         rb.position = Vector3.Lerp(rb.position, v3_distortPoint, 0.98f);
-        for (int i = 0; i < t_bones.Length; i++)
-            t_bones[i].position = v3_origins[i] + (transform.position - v3_origins[i]) * boneWeights[i];
+        for (int i = 0; i < tA_bones.Length; i++)
+            tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
     }
 
     /// <summary>
