@@ -70,7 +70,7 @@ public class AudioManager : MonoBehaviour
 
         for (int i = 0; i < _i_voicesToPlay; i++)
         {
-            StartCoroutine(PlayVoiceCoroutine(i - UnityEngine.Random.Range(_cv_chosenVoice.f_maxDelay, _cv_chosenVoice.f_minDelay) * i, _cv_chosenVoice);
+            StartCoroutine(PlayVoiceCoroutine(i - UnityEngine.Random.Range(_cv_chosenVoice.f_maxDelay, _cv_chosenVoice.f_minDelay) * i, _cv_chosenVoice));
         }
 
         /*
