@@ -1,0 +1,202 @@
+fileFormatVersion: 2
+guid: d7724ab6b7ac273438a4b2a7f6f6f87d
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cheek_bone_L
+    100002: Cheek_bone_R
+    100004: Cheek_L
+    100006: Cheek_R
+    100008: Eyeball_L
+    100010: Eyeball_R
+    100012: Eyebrow_inside_L
+    100014: Eyebrow_inside_R
+    100016: Eyebrow_outside_L
+    100018: Eyebrow_outside_R
+    100020: EyebrowMiddle_L
+    100022: EyebrowMiddle_R
+    100024: Eyelid_bottom_L
+    100026: Eyelid_bottom_R
+    100028: Eyelid_upper_L
+    100030: Eyelid_upper_R
+    100032: Head
+    100034: IGNOREIGNOREIGNORE
+    100036: Jaw
+    100038: LipCorner_L
+    100040: LipCorner_R
+    100042: LowerLips_L
+    100044: LowerLips_R
+    100046: LowerLipsMiddle
+    100048: NickEyes
+    100050: //RootNode
+    100052: NickHair
+    100054: NickHead
+    100056: NickHead 1
+    100058: NickTongue
+    100060: Nose_L
+    100062: Nose_R
+    100064: NoseMiddle
+    100066: Ponytail1
+    100068: ponytail2
+    100070: ponytail3
+    100072: Ponytailbase
+    100074: Tongue1
+    100076: Tongue2
+    100078: Tongue3
+    100080: Tongue4
+    100082: Tongue5
+    100084: Tongue6
+    100086: Tongue7
+    100088: Tongue8
+    100090: TongueBase
+    100092: UpperLip_L
+    100094: UpperLip_R
+    100096: UpperLipMiddle
+    100098: Wholehead
+    400000: Cheek_bone_L
+    400002: Cheek_bone_R
+    400004: Cheek_L
+    400006: Cheek_R
+    400008: Eyeball_L
+    400010: Eyeball_R
+    400012: Eyebrow_inside_L
+    400014: Eyebrow_inside_R
+    400016: Eyebrow_outside_L
+    400018: Eyebrow_outside_R
+    400020: EyebrowMiddle_L
+    400022: EyebrowMiddle_R
+    400024: Eyelid_bottom_L
+    400026: Eyelid_bottom_R
+    400028: Eyelid_upper_L
+    400030: Eyelid_upper_R
+    400032: Head
+    400034: IGNOREIGNOREIGNORE
+    400036: Jaw
+    400038: LipCorner_L
+    400040: LipCorner_R
+    400042: LowerLips_L
+    400044: LowerLips_R
+    400046: LowerLipsMiddle
+    400048: NickEyes
+    400050: //RootNode
+    400052: NickHair
+    400054: NickHead
+    400056: NickHead 1
+    400058: NickTongue
+    400060: Nose_L
+    400062: Nose_R
+    400064: NoseMiddle
+    400066: Ponytail1
+    400068: ponytail2
+    400070: ponytail3
+    400072: Ponytailbase
+    400074: Tongue1
+    400076: Tongue2
+    400078: Tongue3
+    400080: Tongue4
+    400082: Tongue5
+    400084: Tongue6
+    400086: Tongue7
+    400088: Tongue8
+    400090: TongueBase
+    400092: UpperLip_L
+    400094: UpperLip_R
+    400096: UpperLipMiddle
+    400098: Wholehead
+    2100000: lambert7
+    2100002: lambert6
+    4300000: NickHead
+    4300002: NickTongue
+    4300004: NickEyes
+    4300006: NickHair
+    9500000: //RootNode
+    13700000: NickEyes
+    13700002: NickHair
+    13700004: NickHead 1
+    13700006: NickTongue
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
