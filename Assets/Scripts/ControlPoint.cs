@@ -55,7 +55,7 @@ public class ControlPoint : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         v3A_origins = new Vector3[tA_bones.Length];
         v3_pointStart = transform.position;
-        gameObject.layer = 9;
+        gameObject.layer = 10;
         for (int i = 0; i < tA_bones.Length; i++)
             v3A_origins[i] = tA_bones[i].position;
     }
