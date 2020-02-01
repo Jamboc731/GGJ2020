@@ -109,7 +109,6 @@ public class MenuManager : MonoBehaviour
         am_audioManager.ToggleSFX();
     }
 
-
     #endregion
 
     #endregion
