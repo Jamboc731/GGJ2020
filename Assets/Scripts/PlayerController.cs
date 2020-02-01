@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.touches[i].phase == TouchPhase.Began)
                 {
                     if (Physics.Raycast(ray, out hit, 20, controlPointMask)) cp_currentControlPoints[Input.touches[i].fingerId] = hit.collider.GetComponent<ControlPoint>();
+                    cp_currentControlPoints[Input.touches[i].fingerId].b_Drifting = false;
                 }
 
                 if(cp_currentControlPoints[Input.touches[i].fingerId] != null)
@@ -63,6 +64,7 @@ public class PlayerController : MonoBehaviour
 
                 if(Input.touches[i].phase == TouchPhase.Ended)
                 {
+                    cp_currentControlPoints[Input.touches[i].fingerId].b_Drifting = true;
                     cp_currentControlPoints[Input.touches[i].fingerId] = null;
                 }
 
