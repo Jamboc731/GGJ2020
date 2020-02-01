@@ -42,6 +42,7 @@ public class ControlPoint : MonoBehaviour
     private Vector3 v3_driftPoint;
     #endregion
     #region Booleans
+    public bool b_Drifting { get { return b_drifitng; } set { b_drifitng = value; } }
     private bool b_drifitng;
     public bool b_Distorting { get { return b_distorting; } set { b_distorting = value; } }
     /// <summary>
@@ -85,7 +86,7 @@ public class ControlPoint : MonoBehaviour
     /// <param name="_v3_delta">Point to move to</param>
     public void SetPosition(Vector3 _v3_delta)
     {
-
+        b_drifitng = false;
         float targetMag = (_v3_delta - v3_pointStart).magnitude;
         if (targetMag > f_maxDistance)
         {
