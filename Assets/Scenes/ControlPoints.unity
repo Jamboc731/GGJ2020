@@ -383,8 +383,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
-  f_maxDistance: 2
-  f_driftDelta: 0.1
+  f_maxDistance: 0.9
+  f_driftDelta: 0.5
   b_useCurve: 0
   axisToRespect: 0
   ac_curveToFitFace:
@@ -533,6 +533,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e60871e84d0a346991a449f89f7443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &618425437 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400002, guid: d7724ab6b7ac273438a4b2a7f6f6f87d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1645389806}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &686399884 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100008, guid: d7724ab6b7ac273438a4b2a7f6f6f87d,
@@ -600,7 +606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
-  f_maxDistance: 2
+  f_maxDistance: 0.8
   f_driftDelta: 0.1
   b_useCurve: 0
   axisToRespect: 0
@@ -644,13 +650,15 @@ MonoBehaviour:
   - {fileID: 1231449785}
   - {fileID: 1025591521}
   - {fileID: 931359255}
+  - {fileID: 2131506705}
   fA_boneWeights:
   - 1
   - 0.5
   - 0.5
   - 0.4
+  - 0.1
   - 0.3
-  - 0.3
+  - 1
 --- !u!54 &702241753
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -824,8 +832,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
-  f_maxDistance: 2
-  f_driftDelta: 0.1
+  f_maxDistance: 0.5
+  f_driftDelta: 0.5
   b_useCurve: 0
   axisToRespect: 0
   ac_curveToFitFace:
@@ -972,7 +980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
-  f_maxDistance: 2
+  f_maxDistance: 0.8
   f_driftDelta: 0.1
   b_useCurve: 0
   axisToRespect: 0
@@ -1016,13 +1024,15 @@ MonoBehaviour:
   - {fileID: 1572923109}
   - {fileID: 1025591521}
   - {fileID: 931359255}
+  - {fileID: 618425437}
   fA_boneWeights:
   - 1
   - 0.5
   - 0.5
   - 0.4
+  - 0.1
   - 0.3
-  - 0.3
+  - 1
 --- !u!54 &1110523114
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1246,7 +1256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579519799}
   m_LocalRotation: {x: -1, y: 0.00000005960463, z: 4.8750872e-17, w: 3.7050664e-17}
-  m_LocalPosition: {x: 0, y: 2.24, z: 1.7313601}
+  m_LocalPosition: {x: 0, y: 1.725, z: 1.7313601}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 937047551}
@@ -1314,7 +1324,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
-  f_maxDistance: 2
+  f_maxDistance: 1.5
   f_driftDelta: 0.1
   b_useCurve: 0
   axisToRespect: 0
@@ -1341,12 +1351,12 @@ MonoBehaviour:
   - {fileID: 1587387557}
   - {fileID: 209081660}
   fA_boneWeights:
-  - 1
-  - 1
-  - 1
+  - 0.5
+  - 0.5
+  - 0.4
   - 0.5
   - 0.2
-  - 0.05
+  - 0.15
 --- !u!54 &1579519803
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1563,8 +1573,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
-  f_maxDistance: 2
-  f_driftDelta: 0.1
+  f_maxDistance: 0.9
+  f_driftDelta: 0.5
   b_useCurve: 0
   axisToRespect: 0
   ac_curveToFitFace:
@@ -2176,8 +2186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
-  f_maxDistance: 2
-  f_driftDelta: 0.1
+  f_maxDistance: 0.5
+  f_driftDelta: 0.5
   b_useCurve: 0
   axisToRespect: 0
   ac_curveToFitFace:
@@ -2230,6 +2240,12 @@ Transform:
 --- !u!4 &2056517773 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400038, guid: d7724ab6b7ac273438a4b2a7f6f6f87d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1645389806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2131506705 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400000, guid: d7724ab6b7ac273438a4b2a7f6f6f87d,
     type: 3}
   m_PrefabInstance: {fileID: 1645389806}
   m_PrefabAsset: {fileID: 0}
