@@ -21,7 +21,12 @@ ModelImporter:
     4300000: NickHead
     4300002: NickEyes
     4300004: NickHair
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 31c81979ec3e8aa4193b4a000e00258b, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -72,7 +77,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
     previousCalculatedGlobalScale: 1
     hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
