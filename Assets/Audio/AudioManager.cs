@@ -4,19 +4,6 @@ using UnityEngine;
 using UnityEngine.Audio;
 using System;
 
-
-public enum Character
-{
-    john,
-    bart,
-    brett,
-    liouse,
-    nat,
-    byron,
-    jame
-}
-
-
 [Serializable]
 public struct CharacterInfo
 {

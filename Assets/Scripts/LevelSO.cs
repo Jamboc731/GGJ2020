@@ -10,5 +10,17 @@ public class LevelSO : ScriptableObject
     public GameObject backgroundObject;
     [TextArea] public string[] texts;
     public Vector3[] boneOrigins;
+    public Character character;
 
+}
+
+public enum Character
+{
+    john,
+    bart,
+    brett,
+    liouse,
+    nat,
+    byron,
+    jame
 }
