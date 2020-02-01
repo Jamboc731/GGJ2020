@@ -74,7 +74,7 @@ public class ControlPoint : MonoBehaviour
         #endregion
         #region Drift check
         if (b_drifitng)
-            SetPosition(v3_driftPoint);
+            SetPosition(RandomizedDrifting());
         else if (b_drifitng && transform.position == v3_driftPoint)
             b_drifitng = false;
         #endregion
