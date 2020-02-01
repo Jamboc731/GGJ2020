@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
                 ControlPoint c = hit.collider.gameObject.GetComponent<ControlPoint>();
                 if (c != null) 
                 {
-                    Debug.Log("hit control");
                     c.SetPosition(Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound));
                 }
             }
