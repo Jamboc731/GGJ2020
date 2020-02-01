@@ -6,7 +6,7 @@ using UnityEngine;
 public class ControlPoint : MonoBehaviour
 {
     #region Params
-    private Rigidbody rb;
+    #region Serialized Fields
     /// <summary>
     /// The maximum radius the bone segment can be distorted
     /// </summary>
@@ -17,15 +17,13 @@ public class ControlPoint : MonoBehaviour
     /// </summary>
     [SerializeField]
     private Vector3 v3_targetPoint;
+    #endregion
     /// <summary>
     /// Point to distort the bone to.
     /// </summary>
-    private Vector3 v3_distortPoint;
-    public bool b_Distorting { get { return b_distorting; } set { b_distorting = value; } }
-    /// <summary>
-    /// Toggle for if the face is currently distorting
-    /// </summary>
-    private bool b_distorting;
+    [SerializeField]
+    private float f_maxDistance;
+    #region Arrays
     [SerializeField]
     private Transform[] tA_bones;
     /// <summary>
@@ -33,12 +31,18 @@ public class ControlPoint : MonoBehaviour
     /// </summary>
     [SerializeField]
     private float[] fA_boneWeights;
-    [SerializeField]
-    private float f_maxDistance;
+    private Vector3[] v3A_origins;
+    #endregion
 
+    private Vector3 v3_distortPoint;
+    public bool b_Distorting { get { return b_distorting; } set { b_distorting = value; } }
+    /// <summary>
+    /// Toggle for if the face is currently distorting
+    /// </summary>
+    private bool b_distorting;
+    private Rigidbody rb;
     private bool drifitng;
     private Vector3 v3_pointStart;
-    private Vector3[] v3A_origins;
     #endregion
     // Start is called before the first frame update
     void Start()
@@ -77,7 +81,7 @@ public class ControlPoint : MonoBehaviour
         else
             rb.position = new Vector3(_v3_delta.x, _v3_delta.y, v3_pointStart.z);
         for (int i = 0; i < tA_bones.Length; i++)
-            tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
+            tA_bones[i].position = v3A_origins[i] + ((tA_bones[i].position - v3A_origins[i]) + (transform.position - tA_bones[i].position) * fA_boneWeights[i]) / 2;
     }
     /// <summary>
     /// Set control point position to distort point using lerp
