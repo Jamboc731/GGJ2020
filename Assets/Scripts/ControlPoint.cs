@@ -24,6 +24,8 @@ public class ControlPoint : MonoBehaviour
     /// </summary>
     [SerializeField]
     private float f_maxDistance;
+    [SerializeField]
+    private float f_driftDelta;
     #region Arrays
     [SerializeField]
     private Transform[] tA_bones;
@@ -127,7 +129,7 @@ public class ControlPoint : MonoBehaviour
     private Vector3 RandomizedDrifting()
     {
         Vector2 v2_driftPoint;
-        return v2_driftPoint = Random.insideUnitCircle;
+        return v2_driftPoint = Random.insideUnitCircle * f_driftDelta;
     }
 
 }
