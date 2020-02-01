@@ -24,6 +24,7 @@ public class ControlPoint : MonoBehaviour
     /// <summary>
     /// Toggle for if the face is currently distorting
     /// </summary>
+    public bool b_Distorting { get { return b_distorting; } set { b_distorting = value; } }
     private bool b_distorting;
     [SerializeField]
     private Transform[] hb_bones;
@@ -56,7 +57,7 @@ public class ControlPoint : MonoBehaviour
 
     public void SetPosition(Vector3 _v3_delta)
     {
-        rb.MovePosition(Vector3.Lerp(rb.position, _v3_delta, 0.95f));
+        rb.MovePosition(_v3_delta);
         for (int i = 0; i < hb_bones.Length; i++)
             hb_bones[i].position = v3_origins[i] + (transform.position - v3_origins[i]) * boneWeights[i];
     }
@@ -68,27 +69,5 @@ public class ControlPoint : MonoBehaviour
     {
         v3_distortPoint = v3_targetPoint + (Random.insideUnitSphere * f_contraint);
     }
-    /// <summary>
-    /// See if the face is currently distorting.
-    /// </summary>
-    /// <returns>bool</returns>
-    public bool GetDistorting()
-    {
-        return b_distorting;
-    }
-    /// <summary>
-    /// Manually set if the face is distorting
-    /// </summary>
-    /// <param name="_b_delta">The change that you are making</param>
-    public void SetDistorting(bool _b_delta)
-    {
-        b_distorting = _b_delta;
-    }
-    /// <summary>
-    /// Switch if the face is currently distorting
-    /// </summary>
-    public void SetDistorting()
-    {
-        b_distorting = !b_distorting;
-    }
+
 }
