@@ -28,6 +28,11 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
 
+        foreach (var c in GameObject.FindObjectsOfType<ControlPoint>())
+        {
+            c.b_Drifting = true;
+        }
+
         Screen.orientation = ScreenOrientation.Portrait;
 
         cp_currentControlPoints = new ControlPoint[i_maxFingers];
