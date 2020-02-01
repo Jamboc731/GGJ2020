@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region PrivateVariables
+    [SerializeField]
     private ControlPoint[] cp_currentControlPoints = new ControlPoint[2];
     private Vector3 V3_screenNormalizationScale;
     private Vector3 V3_playAreaBound;
@@ -44,29 +45,38 @@ public class PlayerController : MonoBehaviour
             //ray = perspCam.ScreenPointToRay(Input.touches[0].position);
             //Debug.DrawRay(ray.origin, ray.direction * 15, Color.blue);
 
-            //Debug.DrawRay(ray.origin, ray.direction * 15, Color.red);
 
             #region new
 
             for (int i = 0; i < Input.touchCount && i < i_maxFingers; i++)
             {
                 ray = orthCam.ScreenPointToRay(Input.touches[i].position);
+                Debug.DrawRay(ray.origin, ray.direction * 15, Color.red);
+
                 if (Input.touches[i].phase == TouchPhase.Began)
                 {
-                    if (Physics.Raycast(ray, out hit, 20, controlPointMask)) cp_currentControlPoints[Input.touches[i].fingerId] = hit.collider.GetComponent<ControlPoint>();
-                    cp_currentControlPoints[Input.touches[i].fingerId].b_Drifting = false;
+                    //Debug.Log("press");
+                    if (Physics.Raycast(ray, out hit, 20, controlPointMask))
+                    {
+                        //Debug.Log("hit control point");
+                        cp_currentControlPoints[Input.touches[i].fingerId] = hit.collider.GetComponent<ControlPoint>();
+                        cp_currentControlPoints[Input.touches[i].fingerId].b_Drifting = false;
+                    }
                 }
 
-                if(cp_currentControlPoints[Input.touches[i].fingerId] != null)
-                {                    
-                    cp_currentControlPoints[Input.touches[i].fingerId].SetPosition(Vector3.Scale(NormaliseTouchInput(Input.touches[i].position), V3_playAreaBound));
-                }
-
-                if(Input.touches[i].phase == TouchPhase.Ended)
+                if (cp_currentControlPoints[Input.touches[i].fingerId] != null)
                 {
-                    cp_currentControlPoints[Input.touches[i].fingerId].b_Drifting = true;
-                    cp_currentControlPoints[Input.touches[i].fingerId] = null;
+                    cp_currentControlPoints[Input.touches[i].fingerId].SetPosition(Vector3.Scale(NormaliseTouchInput(Input.touches[i].position), V3_playAreaBound));
+
+                    if (Input.touches[i].phase == TouchPhase.Ended)
+                    {
+                        cp_currentControlPoints[Input.touches[i].fingerId].b_Drifting = true;
+                        cp_currentControlPoints[Input.touches[i].fingerId].RandomizedDrifting();
+                        cp_currentControlPoints[Input.touches[i].fingerId] = null;
+
+                    }
                 }
+
 
             }
 

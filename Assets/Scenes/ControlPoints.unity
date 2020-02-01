@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa31712f4fbb24448991fb2b7c467a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  orthCam: {fileID: 1349615461}
+  orthCam: {fileID: 1750700769}
   perspCam: {fileID: 1750700769}
   f_playWidth: 6.6
   f_playHeight: 7
@@ -155,6 +155,9 @@ MonoBehaviour:
   controlPointMask:
     serializedVersion: 2
     m_Bits: 1024
+  cp_currentControlPoints:
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!4 &44816494
 Transform:
   m_ObjectHideFlags: 0
@@ -189,7 +192,7 @@ GameObject:
   - component: {fileID: 702241754}
   - component: {fileID: 702241753}
   - component: {fileID: 702241752}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: CheekRightControlPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +270,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 5}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &702241755
 MeshRenderer:
@@ -378,7 +381,7 @@ GameObject:
   - component: {fileID: 1110523115}
   - component: {fileID: 1110523114}
   - component: {fileID: 1110523113}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: CheekRightControlPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +459,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5, y: 5, z: 5}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1110523116
 MeshRenderer:
