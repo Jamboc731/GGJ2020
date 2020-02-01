@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     #region SerializedVariables
 
     [SerializeField] private GameObject[] goA_touchPoints;
+    [SerializeField] private Camera cam;
     [SerializeField] private float f_playWidth;
     [SerializeField] private float f_playHeight;
 
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 V3_playAreaBound;
 
     private RaycastHit hit;
+    private Ray ray;
 
     #endregion
 
@@ -35,12 +37,16 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.touchCount > 0)
         {
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.touches[0].position), out hit, 200))
+            ray = cam.ScreenPointToRay(Input.touches[0].position);
+            Debug.DrawRay(ray.origin, ray.direction * 15, Color.red);
+            if (Physics.Raycast(ray, out hit, 200))
             {
                 ControlPoint c = hit.collider.gameObject.GetComponent<ControlPoint>();
                 if (c != null) 
                 {
+                    //Debug.Log(Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound));
                     c.SetPosition(Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound));
+                    //c.SetPosition(Vector3.one);
                 }
             }
         }
