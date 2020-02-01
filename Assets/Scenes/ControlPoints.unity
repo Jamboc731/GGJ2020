@@ -147,14 +147,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa31712f4fbb24448991fb2b7c467a89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 1750700769}
   i_maxFingers: 2
   controlPointMask:
     serializedVersion: 2
     m_Bits: 1024
-  cp_currentControlPoints:
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!4 &44816494
 Transform:
   m_ObjectHideFlags: 0
@@ -193,6 +190,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6e60871e84d0a346991a449f89f7443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &686399884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100008, guid: d7724ab6b7ac273438a4b2a7f6f6f87d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1645389806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &686399886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 686399884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e048f89f1a47984d9ac72280f77aaf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invert: -1
 --- !u!1 &702241750
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +537,25 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110523111}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1146351201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100010, guid: d7724ab6b7ac273438a4b2a7f6f6f87d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1645389806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1146351203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146351201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e048f89f1a47984d9ac72280f77aaf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invert: 1
 --- !u!4 &1231449785 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400042, guid: d7724ab6b7ac273438a4b2a7f6f6f87d,

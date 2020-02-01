@@ -15,12 +15,11 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region PrivateVariables
-    [SerializeField]
+
     private ControlPoint[] cp_currentControlPoints = new ControlPoint[2];
-    private float f_playWidth;
-    private float f_playHeight; 
     private Vector3 V3_screenNormalizationScale;
-    private Vector3 V3_playAreaBound;
+    private Vector3 V3_facePos = new Vector3(0, 0, 22);
+    private Vector3 V3_zFlatten = new Vector3(1, 1, 0);
     private RaycastHit hit;
     private Ray ray;
 
@@ -33,7 +32,6 @@ public class PlayerController : MonoBehaviour
 
         cp_currentControlPoints = new ControlPoint[i_maxFingers];
         V3_screenNormalizationScale = new Vector3(((float)1 / Screen.width), ((float)1 / Screen.height), 1);
-        V3_playAreaBound = new Vector3(f_playWidth, f_playHeight, 1);
 
     }
 
@@ -55,7 +53,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.touches[i].phase == TouchPhase.Began)
                 {
                     //Debug.Log("press");
-                    if (Physics.Raycast(ray, out hit, 20, controlPointMask))
+                    if (Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, controlPointMask))
                     {
                         //Debug.Log("hit control point");
                         cp_currentControlPoints[Input.touches[i].fingerId] = hit.collider.GetComponent<ControlPoint>();
@@ -65,7 +63,8 @@ public class PlayerController : MonoBehaviour
 
                 if (cp_currentControlPoints[Input.touches[i].fingerId] != null)
                 {
-                    cp_currentControlPoints[Input.touches[i].fingerId].SetPosition(Vector3.Scale(NormaliseTouchInput(Input.touches[i].position), V3_playAreaBound));
+                    Debug.Log(Vector3.Scale(cam.ScreenToWorldPoint(Input.touches[i].position), V3_zFlatten));
+                    cp_currentControlPoints[Input.touches[i].fingerId].SetPosition(cam.ScreenToWorldPoint(Vector3.Scale(Input.touches[i].position, V3_zFlatten) + V3_facePos));
 
                     if (Input.touches[i].phase == TouchPhase.Ended)
                     {
