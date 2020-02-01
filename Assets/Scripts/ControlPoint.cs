@@ -72,6 +72,10 @@ public class ControlPoint : MonoBehaviour
         else if (rb.position == v3_distortPoint && b_distorting)
             b_distorting = false;
         #endregion
+        #region drift checking
+        if (b_drifitng)
+            SetPosition(rb.position);
+        #endregion
     }
 
     /// <summary>
@@ -108,6 +112,7 @@ public class ControlPoint : MonoBehaviour
         rb.position = Vector3.Lerp(rb.position, _v2_delta, 0.98f);
         for (int i = 0; i < tA_bones.Length; i++)
             tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
+
     }
 
     /// <summary>
