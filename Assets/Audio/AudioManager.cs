@@ -20,6 +20,7 @@ public struct CharacterInfo
 public class AudioManager : MonoBehaviour
 {
     [SerializeField] private AudioClip[] acA_Voice;
+    [Space]
     [SerializeField] private AudioClip[] acA_Music;
     [SerializeField] private AudioClip[] acA_SFX;
 
@@ -54,7 +55,6 @@ public class AudioManager : MonoBehaviour
 
     public void PlayVoice(int _ac_audioClipID, float _f_RepeatTime, int _i_voicesToPlay, CharacterInfo _cv_chosenVoice)
     {
-
         for (int i = 0; i < _i_voicesToPlay; i++)
         {
             StartCoroutine(PlayVoiceCoroutine(i - UnityEngine.Random.Range(_cv_chosenVoice.f_maxDelay, _cv_chosenVoice.f_minDelay) * i, _cv_chosenVoice));

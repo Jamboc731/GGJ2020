@@ -595,6 +595,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b766f482a4478fd43b1dbb682525ebc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  c_tempCharacter: 1
+  cA_characterArray: 0000000001000000020000000300000004000000050000000600000007000000
+  ciA_characterInfoArray:
+  - i_voiceClip: 0
+    f_minPitch: 0.6
+    f_maxPitch: 1.4
+    f_minDelay: 0.8
+    f_maxDelay: 0.6
+    face: {fileID: 0}
+  - i_voiceClip: 1
+    f_minPitch: 0.6
+    f_maxPitch: 1.2
+    f_minDelay: 0.6
+    f_maxDelay: 0.8
+    face: {fileID: 0}
+  - i_voiceClip: 2
+    f_minPitch: 0.6
+    f_maxPitch: 1.4
+    f_minDelay: 0.8
+    f_maxDelay: 0.6
+    face: {fileID: 0}
+  - i_voiceClip: 3
+    f_minPitch: 0.8
+    f_maxPitch: 1.7
+    f_minDelay: 0.8
+    f_maxDelay: 0.6
+    face: {fileID: 0}
+  - i_voiceClip: 4
+    f_minPitch: 0.9
+    f_maxPitch: 1.4
+    f_minDelay: 0.8
+    f_maxDelay: 0.6
+    face: {fileID: 0}
+  - i_voiceClip: 5
+    f_minPitch: 0.9
+    f_maxPitch: 1.4
+    f_minDelay: 0.8
+    f_maxDelay: 0.7
+    face: {fileID: 0}
+  - i_voiceClip: 6
+    f_minPitch: 0.6
+    f_maxPitch: 1.2
+    f_minDelay: 0.8
+    f_maxDelay: 0.8
+    face: {fileID: 0}
+  - i_voiceClip: 7
+    f_minPitch: 1
+    f_maxPitch: 1.4
+    f_minDelay: 0.8
+    f_maxDelay: 0.6
+    face: {fileID: 0}
 --- !u!114 &1529850666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,7 +659,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   acA_Voice:
+  - {fileID: 8300000, guid: 186b6ff6aa4a54a469e1550240a3e061, type: 3}
+  - {fileID: 8300000, guid: 58aeb3c98a46d334db01d4650b110cb1, type: 3}
+  - {fileID: 8300000, guid: 48bf0d3602542e1478bfb48f70a12d42, type: 3}
   - {fileID: 8300000, guid: 9aaea6f10567a5345ad68b7b6c08bcc9, type: 3}
+  - {fileID: 8300000, guid: 584ec074e5d723b42bf4938c3b9038b6, type: 3}
+  - {fileID: 8300000, guid: 0bf5b4cbb74de354e99c90fa5b16786e, type: 3}
+  - {fileID: 8300000, guid: 14f96e0fc67b8ed42b833ccf595f6341, type: 3}
+  - {fileID: 8300000, guid: e9bd3258f90b8c545bcfdb2a37180776, type: 3}
   acA_Music: []
   acA_SFX: []
   as_Voice: {fileID: 948254241}

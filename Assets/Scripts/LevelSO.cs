@@ -22,5 +22,6 @@ public enum Character
     liouse,
     nat,
     byron,
-    jame
+    jame,
+    wilson
 }
