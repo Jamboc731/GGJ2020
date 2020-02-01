@@ -1055,7 +1055,7 @@ PrefabInstance:
     - target: {fileID: 771442270061320216, guid: c8869e3cf6abe504b8e86c36a8cc237e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 771442270061320220, guid: c8869e3cf6abe504b8e86c36a8cc237e,
         type: 3}
@@ -2747,6 +2747,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1248411988014328187, guid: 594da13b8b2befa4799e6723d8a7a885,
+        type: 3}
+      propertyPath: m_Name
+      value: PH_SettingsButton
+      objectReference: {fileID: 0}
     - target: {fileID: 8258110201856151328, guid: 594da13b8b2befa4799e6723d8a7a885,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2967,11 +2972,6 @@ PrefabInstance:
       propertyPath: m_Transition
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1248411988014328187, guid: 594da13b8b2befa4799e6723d8a7a885,
-        type: 3}
-      propertyPath: m_Name
-      value: PH_SettingsButton
-      objectReference: {fileID: 0}
     - target: {fileID: 3948724835982402926, guid: 594da13b8b2befa4799e6723d8a7a885,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3016,6 +3016,39 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 775536288066630475, guid: 594da13b8b2befa4799e6723d8a7a885,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e184e4ad1f9d4f43ab8f38391818e0c,
+        type: 3}
+    - target: {fileID: 775536288066630475, guid: 594da13b8b2befa4799e6723d8a7a885,
+        type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8651753558615719080, guid: 594da13b8b2befa4799e6723d8a7a885,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e184e4ad1f9d4f43ab8f38391818e0c,
+        type: 3}
+    - target: {fileID: 8651753558615719080, guid: 594da13b8b2befa4799e6723d8a7a885,
+        type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4503228397187456344, guid: 594da13b8b2befa4799e6723d8a7a885,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1e184e4ad1f9d4f43ab8f38391818e0c,
+        type: 3}
+    - target: {fileID: 4503228397187456344, guid: 594da13b8b2befa4799e6723d8a7a885,
+        type: 3}
+      propertyPath: m_Type
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 594da13b8b2befa4799e6723d8a7a885, type: 3}
