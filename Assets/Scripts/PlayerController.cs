@@ -28,6 +28,11 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
 
+        foreach (var c in GameObject.FindObjectsOfType<ControlPoint>())
+        {
+            c.b_Drifting = true;
+        }
+
         Screen.orientation = ScreenOrientation.Portrait;
 
         cp_currentControlPoints = new ControlPoint[i_maxFingers];
@@ -63,7 +68,6 @@ public class PlayerController : MonoBehaviour
 
                 if (cp_currentControlPoints[Input.touches[i].fingerId] != null)
                 {
-                    Debug.Log(Vector3.Scale(cam.ScreenToWorldPoint(Input.touches[i].position), V3_zFlatten));
                     cp_currentControlPoints[Input.touches[i].fingerId].SetPosition(cam.ScreenToWorldPoint(Vector3.Scale(Input.touches[i].position, V3_zFlatten) + V3_facePos));
 
                     if (Input.touches[i].phase == TouchPhase.Ended)
