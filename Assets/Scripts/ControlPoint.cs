@@ -86,7 +86,6 @@ public class ControlPoint : MonoBehaviour
     /// <param name="_v3_delta">Point to move to</param>
     public void SetPosition(Vector3 _v3_delta)
     {
-        b_drifitng = false;
         float targetMag = (_v3_delta - v3_pointStart).magnitude;
         if (targetMag > f_maxDistance)
         {
@@ -96,8 +95,6 @@ public class ControlPoint : MonoBehaviour
             rb.position = new Vector3(_v3_delta.x, _v3_delta.y, v3_pointStart.z);
         for (int i = 0; i < tA_bones.Length; i++)
             tA_bones[i].position = v3A_origins[i] + ((tA_bones[i].position - v3A_origins[i]) + (transform.position - tA_bones[i].position) * fA_boneWeights[i]) / 2;
-        b_drifitng = true;
-        v3_driftPoint = RandomizedDrifting();
     }
     /// <summary>
     /// Set control point position to distort point using lerp
