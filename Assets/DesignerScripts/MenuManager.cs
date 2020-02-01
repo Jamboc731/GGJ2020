@@ -19,15 +19,14 @@ public class MenuManager : MonoBehaviour
         go_currentActiveCanvas.SetActive(false);
         go_currentActiveCanvas = _go_targetCanvas;
 
-        if (go_currentActiveCanvas == go_ScenarioGamePlayCanvas || go_currentActiveCanvas == go_FreestyleGamePlayCanvas) ActivateGameplayControl();
-
         go_currentActiveCanvas.SetActive(true);
     }
        
 
     #region Scenario Selections
-    public void SelectedRestaurantDay()
+    public void SelectedRestaurantDay(int _i_level)
     {
+        // gameManager.LoadLevel(_i_level)
         print("Should've turned the restaurant(day) on");
     }
     public void SelectedRestaurantNight()
