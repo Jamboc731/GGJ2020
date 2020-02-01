@@ -381,24 +381,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 2
   f_driftDelta: 0.1
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 403779894}
   - {fileID: 551591981}
   fA_boneWeights:
   - 1
   - 0.5
+  b_drifitng: 0
 --- !u!54 &556149510
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -512,7 +504,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 21cdb7dc76d70ab479ee647513de3d1f, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 36bda96b86930004ebf5f27833f54ee2, type: 2}
+      objectReference: {fileID: 9100000, guid: 92112d9cfff17c44db9551e9fc3f2413, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 21cdb7dc76d70ab479ee647513de3d1f, type: 3}
 --- !u!1 &584389911 stripped
@@ -598,45 +590,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 2
   f_driftDelta: 0.1
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0
-      value: 3
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 2056517773}
   - {fileID: 6548847}
@@ -651,6 +607,7 @@ MonoBehaviour:
   - 0.4
   - 0.3
   - 0.3
+  b_drifitng: 0
 --- !u!54 &702241753
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -822,24 +779,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 2
   f_driftDelta: 0.1
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 463088265}
   - {fileID: 551591981}
   fA_boneWeights:
   - 1
   - 0.5
+  b_drifitng: 0
 --- !u!54 &720202774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -970,45 +919,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 2
   f_driftDelta: 0.1
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0
-      value: 3
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 933947570}
   - {fileID: 1708322458}
@@ -1023,6 +936,7 @@ MonoBehaviour:
   - 0.4
   - 0.3
   - 0.3
+  b_drifitng: 0
 --- !u!54 &1110523114
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1312,27 +1226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 2
   f_driftDelta: 0.1
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 1231449785}
   - {fileID: 557884719}
@@ -1347,6 +1243,7 @@ MonoBehaviour:
   - 0.5
   - 0.2
   - 0.05
+  b_drifitng: 0
 --- !u!54 &1579519803
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1561,51 +1458,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 2
   f_driftDelta: 0.1
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.0010482176
-      value: 0.007075472
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.49895158
-      value: 0.52358496
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.6939201
-      value: 0.12971698
-      inSlope: -5.3863635
-      outSlope: -5.3863635
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.17741942
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 1750583163}
   - {fileID: 344027154}
   fA_boneWeights:
   - 1
   - 0.5
+  b_drifitng: 0
 --- !u!54 &1616892306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1715,89 +1577,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: NickFaceexport
       objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 100006, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000,
-        type: 0}
     - target: {fileID: 100012, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 100014, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000,
         type: 0}
     - target: {fileID: 100016, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000,
         type: 0}
-    - target: {fileID: 100018, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000,
-        type: 0}
     - target: {fileID: 100020, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
       propertyPath: m_Icon
       value: 
       objectReference: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 100022, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 100038, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 100040, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 100042, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 100044, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 100046, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 100090, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100092, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 100094, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 100096, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
         type: 0}
     - target: {fileID: 400050, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1883,10 +1676,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 57.405003
       objectReference: {fileID: 0}
-    - target: {fileID: 13700000, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 31c81979ec3e8aa4193b4a000e00258b, type: 2}
     - target: {fileID: 13700002, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1895,6 +1684,79 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 31c81979ec3e8aa4193b4a000e00258b, type: 2}
+    - target: {fileID: 100014, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 100018, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 100022, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 100092, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 100004, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 100006, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 100038, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 100040, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 100094, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 100096, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 100042, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 100044, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 100046, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 13700000, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 31c81979ec3e8aa4193b4a000e00258b, type: 2}
+    - target: {fileID: 100090, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 13700006, guid: d7724ab6b7ac273438a4b2a7f6f6f87d, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2174,24 +2036,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 2
   f_driftDelta: 0.1
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 1944616182}
   - {fileID: 344027154}
   fA_boneWeights:
   - 1
   - 0.5
+  b_drifitng: 0
 --- !u!54 &1930072652
 Rigidbody:
   m_ObjectHideFlags: 0

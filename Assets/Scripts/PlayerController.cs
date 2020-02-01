@@ -22,7 +22,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 V3_zFlatten = new Vector3(1, 1, 0);
     private RaycastHit hit;
     private Ray ray;
+    private bool b_canControl = true;
 
+    public bool b_CanControl { get { return b_canControl; } set { b_canControl = value; } }
     #endregion
 
     private void Start()
@@ -41,6 +43,13 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update()
+    {
+
+        if (b_canControl) RecieveTouches();
+
+    }
+
+    private void RecieveTouches()
     {
         if (Input.touchCount > 0)
         {
@@ -84,22 +93,7 @@ public class PlayerController : MonoBehaviour
 
             #endregion
 
-            #region old
-            //if (Physics.Raycast(ray, out hit, 200, controlPointMask))
-            //{
-            //    ControlPoint c = hit.collider.gameObject.GetComponent<ControlPoint>();
-            //    if (c != null) 
-            //    {
-            //        //Debug.Log(Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound));
-
-            //        c.SetPosition(Vector3.Scale(NormaliseTouchInput(Input.touches[0].position), V3_playAreaBound));
-            //        //c.SetPosition(Vector3.one);
-            //    }
-            //}
-            #endregion
-
         }
-
     }
 
     /// <summary>

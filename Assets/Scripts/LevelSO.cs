@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "")]
+[CreateAssetMenu(fileName = "", menuName = "New Level")]
 public class LevelSO : ScriptableObject
 {
 
     public int ID;
     public GameObject backgroundObject;
     [TextArea] public string[] texts;
-    public Vector3[] boneOrigins;
+    public Vector3[][] boneOrigins;
     public Character character;
 
 }
