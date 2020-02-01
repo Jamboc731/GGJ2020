@@ -16,6 +16,11 @@ ModelImporter:
     400008: NickBox_MainBox
     400010: //RootNode
     2100000: initialShadingGroup
+    2100002: Button1_NickBoxMat
+    2100004: NickBox_Button2Mat
+    2100006: NickBox_Button3Mat
+    2100008: NickBox_Button4Mat
+    2100010: NickBox_MainBoxMat
     2300000: Button1_NickBox
     2300002: NickBox_Button2
     2300004: NickBox_Button3
