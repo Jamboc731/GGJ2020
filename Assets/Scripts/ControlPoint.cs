@@ -72,7 +72,7 @@ public class ControlPoint : MonoBehaviour
         else if (rb.position == v3_distortPoint && b_distorting)
             b_distorting = false;
         #endregion
-        #region drift checking
+        #region Drift checking
         if (b_drifitng)
             SetPosition(rb.position);
         #endregion
