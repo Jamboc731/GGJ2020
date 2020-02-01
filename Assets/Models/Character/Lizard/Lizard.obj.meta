@@ -16,7 +16,12 @@ ModelImporter:
     3300002: LizardBod_Lizard
     4300000: Lizard_LizardEyes
     4300002: LizardBod_Lizard
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: initialShadingGroup
+    second: {fileID: 2100000, guid: 0d60257154623d34d912c24461d065c7, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
