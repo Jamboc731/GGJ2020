@@ -8,10 +8,7 @@ public class PlayerController : MonoBehaviour
     #region SerializedVariables
 
     //[SerializeField] private GameObject[] goA_touchPoints;
-    [SerializeField] private Camera orthCam;
-    [SerializeField] private Camera perspCam;
-    [SerializeField] private float f_playWidth;
-    [SerializeField] private float f_playHeight;
+    [SerializeField] private Camera cam;
     [SerializeField] private int i_maxFingers = 2;
     [SerializeField] private LayerMask controlPointMask;
 
@@ -20,6 +17,8 @@ public class PlayerController : MonoBehaviour
     #region PrivateVariables
     [SerializeField]
     private ControlPoint[] cp_currentControlPoints = new ControlPoint[2];
+    private float f_playWidth;
+    private float f_playHeight; 
     private Vector3 V3_screenNormalizationScale;
     private Vector3 V3_playAreaBound;
     private RaycastHit hit;
@@ -50,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
             for (int i = 0; i < Input.touchCount && i < i_maxFingers; i++)
             {
-                ray = orthCam.ScreenPointToRay(Input.touches[i].position);
+                ray = cam.ScreenPointToRay(Input.touches[i].position);
                 Debug.DrawRay(ray.origin, ray.direction * 15, Color.red);
 
                 if (Input.touches[i].phase == TouchPhase.Began)
