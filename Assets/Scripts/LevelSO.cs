@@ -13,15 +13,3 @@ public class LevelSO : ScriptableObject
     public Character character;
 
 }
-
-public enum Character
-{
-    john,
-    bart,
-    brett,
-    louise,
-    nat,
-    byron,
-    jame,
-    wilson
-}

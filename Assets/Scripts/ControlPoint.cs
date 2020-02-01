@@ -9,22 +9,24 @@ public class ControlPoint : MonoBehaviour
     private Rigidbody rb;
     #region Serialized Fields
     /// <summary>
-    /// Random target for the bone to be repaired to.
-    /// </summary>
-    [SerializeField] private Vector3 v3_targetPoint;
-    /// <summary>
     /// The maximum radius the bone segment can be distorted
     /// </summary>
-    [SerializeField] private float f_contraint;
+    [SerializeField]
+    private float f_contraint;
+    /// <summary>
+    /// Random target for the bone to be repaired to.
+    /// </summary>
+    [SerializeField]
+    public Vector3 v3_TargetPoint { get { return v3_TargetPoint; } set { v3_targetPoint = value; } }
+    private Vector3 v3_targetPoint;
+    #endregion
     /// <summary>
     /// Point to distort the bone to.
     /// </summary>
-    [SerializeField] private float f_maxDistance;
-    [SerializeField] private float f_driftDelta;
-    [SerializeField] private bool b_useCurve = false;
-    [SerializeField] private AxisToRespect axisToRespect;
-    [SerializeField] private AnimationCurve ac_curveToFitFace;
-    #endregion
+    [SerializeField]
+    private float f_maxDistance;
+    [SerializeField]
+    private float f_driftDelta;
     #region Arrays
     [SerializeField]
     private Transform[] tA_bones;
@@ -42,6 +44,7 @@ public class ControlPoint : MonoBehaviour
     #endregion
     #region Booleans
     public bool b_Drifting { get { return b_drifitng; } set { b_drifitng = value; } }
+    [SerializeField]
     private bool b_drifitng;
     public bool b_Distorting { get { return b_distorting; } set { b_distorting = value; } }
     /// <summary>
@@ -51,7 +54,7 @@ public class ControlPoint : MonoBehaviour
 
     #endregion
     #endregion
-
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -62,6 +65,7 @@ public class ControlPoint : MonoBehaviour
             v3A_origins[i] = tA_bones[i].position;
     }
 
+    // Update is called once per frame
     void Update()
     {
         #region Distortion check
@@ -82,28 +86,13 @@ public class ControlPoint : MonoBehaviour
     /// <param name="_v3_delta">Point to move to</param>
     public void SetPosition(Vector3 _v3_delta)
     {
-        if(b_useCurve)
-        {
-            switch (axisToRespect)
-            {
-                case AxisToRespect.x:
-                    _v3_delta.z = ac_curveToFitFace.Evaluate(_v3_delta.x);
-                    break;
-                case AxisToRespect.y:
-                    _v3_delta.z = ac_curveToFitFace.Evaluate(_v3_delta.y);
-                    break;
-                default:
-                    break;
-            }
-        }
         float targetMag = (_v3_delta - v3_pointStart).magnitude;
-            if (targetMag > f_maxDistance)
-            {
-                rb.position = new Vector3((v3_pointStart + (_v3_delta - v3_pointStart).normalized * f_maxDistance).x, (v3_pointStart + (_v3_delta - v3_pointStart).normalized * f_maxDistance).y, v3_pointStart.z);
-            }
-            else
-                rb.position = new Vector3(_v3_delta.x, _v3_delta.y, v3_pointStart.z);
-
+        if (targetMag > f_maxDistance)
+        {
+            rb.position = new Vector3((v3_pointStart + (_v3_delta - v3_pointStart).normalized * f_maxDistance).x, (v3_pointStart + (_v3_delta - v3_pointStart).normalized * f_maxDistance).y, v3_pointStart.z);
+        }
+        else
+            rb.position = new Vector3(_v3_delta.x, _v3_delta.y, v3_pointStart.z);
         for (int i = 0; i < tA_bones.Length; i++)
             tA_bones[i].position = v3A_origins[i] + ((tA_bones[i].position - v3A_origins[i]) + (transform.position - tA_bones[i].position) * fA_boneWeights[i]) / 2;
     }
@@ -141,9 +130,4 @@ public class ControlPoint : MonoBehaviour
         //rb.AddForce(new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0.0f).normalized * f_driftDelta, ForceMode.Impulse);
     }
 
-}
-
-public enum AxisToRespect
-{
-    x,y
 }
