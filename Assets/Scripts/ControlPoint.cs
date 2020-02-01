@@ -6,6 +6,7 @@ using UnityEngine;
 public class ControlPoint : MonoBehaviour
 {
     #region Params
+    private Rigidbody rb;
     #region Serialized Fields
     /// <summary>
     /// The maximum radius the bone segment can be distorted
@@ -33,16 +34,20 @@ public class ControlPoint : MonoBehaviour
     private float[] fA_boneWeights;
     private Vector3[] v3A_origins;
     #endregion
-
+    #region Vectors
     private Vector3 v3_distortPoint;
+    private Vector3 v3_pointStart;
+    private Vector3 v3_driftPoint;
+    #endregion
+    #region Booleans
+    private bool b_drifitng;
     public bool b_Distorting { get { return b_distorting; } set { b_distorting = value; } }
     /// <summary>
     /// Toggle for if the face is currently distorting
     /// </summary>
     private bool b_distorting;
-    private Rigidbody rb;
-    private bool drifitng;
-    private Vector3 v3_pointStart;
+
+    #endregion
     #endregion
     // Start is called before the first frame update
     void Start()
@@ -64,6 +69,12 @@ public class ControlPoint : MonoBehaviour
         else if (rb.position == v3_distortPoint && b_distorting)
             b_distorting = false;
         #endregion
+        #region Drift check
+        if (b_drifitng)
+            SetPosition(v3_driftPoint);
+        else if (b_drifitng && transform.position == v3_driftPoint)
+            b_drifitng = false;
+        #endregion
     }
 
     /// <summary>
@@ -82,6 +93,8 @@ public class ControlPoint : MonoBehaviour
             rb.position = new Vector3(_v3_delta.x, _v3_delta.y, v3_pointStart.z);
         for (int i = 0; i < tA_bones.Length; i++)
             tA_bones[i].position = v3A_origins[i] + ((tA_bones[i].position - v3A_origins[i]) + (transform.position - tA_bones[i].position) * fA_boneWeights[i]) / 2;
+        b_drifitng = true;
+        v3_driftPoint = RandomizedDrifting();
     }
     /// <summary>
     /// Set control point position to distort point using lerp
@@ -92,6 +105,16 @@ public class ControlPoint : MonoBehaviour
         for (int i = 0; i < tA_bones.Length; i++)
             tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
     }
+    /// <summary>
+    /// Set Control point to delta for random drifting. Lerp to the generated Vector2
+    /// </summary>
+    /// <param name="_v2_delta">Random Vector2</param>
+    public void SetPosition(Vector2 _v2_delta)
+    {
+        rb.position = Vector3.Lerp(rb.position, _v2_delta, 0.98f);
+        for (int i = 0; i < tA_bones.Length; i++)
+            tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
+    }
 
     /// <summary>
     /// Randomizes a point to distort the face to so that it can be set during gameplay.
@@ -99,6 +122,12 @@ public class ControlPoint : MonoBehaviour
     public void RandomizeDistortPoint()
     {
         v3_distortPoint = v3_targetPoint + (Random.insideUnitSphere * f_contraint);
+    }
+
+    private Vector3 RandomizedDrifting()
+    {
+        Vector2 v2_driftPoint;
+        return v2_driftPoint = Random.insideUnitCircle;
     }
 
 }
