@@ -5,10 +5,14 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+    [Header("Canvases")]
     [SerializeField] private GameObject go_currentActiveCanvas;
     [Space]
     [SerializeField] private GameObject go_ScenarioGamePlayCanvas;
     [SerializeField] private GameObject go_FreestyleGamePlayCanvas;
+
+    [Header("Other Managers")]
+    [SerializeField] private AudioManager am_audioManager;
 
     public void ChangeActiveCanvas(GameObject _go_targetCanvas)
     {
@@ -95,14 +99,14 @@ public class MenuManager : MonoBehaviour
     #endregion
 
     #region Audio Controls
-    public void ChangeMusicVolume(int _i_newVolume)
+    public void ChangeMusicVolume()
     {
-        print("Music volume set to " + _i_newVolume);
+        am_audioManager.ToggleMusic();
     }
 
-    public void ChangeFXVolume(int _i_newVolume)
+    public void ChangeFXVolume()
     {
-        print("Sound effect volume set to " + _i_newVolume);
+        am_audioManager.ToggleSFX();
     }
 
 
