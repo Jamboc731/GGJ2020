@@ -128,8 +128,8 @@ public class ControlPoint : MonoBehaviour
 
     private Vector3 RandomizedDrifting()
     {
-        Vector2 v2_driftPoint;
-        return v2_driftPoint = Random.insideUnitCircle * f_driftDelta;
+        Vector3 v3_driftPoint;
+        return v3_driftPoint = (transform.position + Random.insideUnitSphere) * f_driftDelta;
     }
 
 }
