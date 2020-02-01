@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour
             s_storyTexts = levelToLoad.texts;
             for (int i = 0; i < levelToLoad.boneOrigins.Length; i++)
             {
-                controlPoints[i].v3_TargetPoint = levelToLoad.boneOrigins[i];
+                for (int j = 0; j < levelToLoad.boneOrigins[i].Length; j++)
+                controlPoints[i].v3_TargetPoint = levelToLoad.boneOrigins[i][j];
             }
             return true;
         }
