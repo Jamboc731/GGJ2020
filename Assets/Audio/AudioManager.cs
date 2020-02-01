@@ -23,6 +23,7 @@ public class AudioManager : MonoBehaviour
     [Space]
     [SerializeField] private AudioClip[] acA_Music;
     [SerializeField] private AudioClip[] acA_SFX;
+    [SerializeField] private AudioClip[] acA_ButtonEffect = new AudioClip[4];
 
     [SerializeField] private AudioSource as_Voice;
     [SerializeField] private AudioSource as_SFX;
@@ -44,6 +45,11 @@ public class AudioManager : MonoBehaviour
     public void ToggleMusic()
     {
         as_Music.volume = as_Music.volume == 1 ? 0 : 1;
+    }
+
+    public void PlayRandomButtonSound()
+    {
+
     }
 
     public void PlaySFX(int _ac_audioClipID)
