@@ -11,7 +11,6 @@ public struct StoryToTargets
 [CreateAssetMenu(fileName = "", menuName = "New Level")]
 public class LevelSO : ScriptableObject
 {
-
     public int ID;
     public GameObject backgroundObject;
     [TextArea] public string[] texts;
