@@ -11,9 +11,13 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject go_ScenarioGamePlayCanvas;
     [SerializeField] private GameObject go_FreestyleGamePlayCanvas;
 
-    [Header("Other Managers")]
-    [SerializeField] private AudioManager am_audioManager;
+    //[Header("Other Managers")]
+    private AudioManager am_audioManager;
 
+    private void Start()
+    {
+        am_audioManager = AudioManager.x;
+    }
     public void ChangeActiveCanvas(GameObject _go_targetCanvas)
     {
         go_currentActiveCanvas.SetActive(false);
