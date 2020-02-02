@@ -15,6 +15,6 @@ public class LevelSO : ScriptableObject
     public GameObject backgroundObject;
     [TextArea] public string[] texts;
     public StoryToTargets[] storyTargets;
-    public Character character;
+    public Character[] character;
 
 }
