@@ -70,7 +70,6 @@ public class PlayerController : MonoBehaviour
                     if (Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, controlPointMask))
                     {
                         //Debug.Log("hit control point");
-                        AudioManager.x.PlaySFX(touchClip, .8f, 1.2f);
                         if (!lizzy.b_Animating) lizzy.SetAnimationBool("Fusetouching", true);
                         cp_currentControlPoints[Input.touches[i].fingerId] = hit.collider.GetComponent<ControlPoint>();
                     }
@@ -83,6 +82,7 @@ public class PlayerController : MonoBehaviour
                     if (Input.touches[i].phase == TouchPhase.Ended)
                     {
                         cp_currentControlPoints[Input.touches[i].fingerId] = null;
+                        AudioManager.x.PlaySFX(touchClip, .8f, 1.2f); 
 
                     }
                 }
@@ -94,7 +94,9 @@ public class PlayerController : MonoBehaviour
         }
         else 
         {
-            lizzy.BackToIdle();
+            if (b_won) lizzy.SetAnimationBool("Goodjob", true);
+            else
+                lizzy.BackToIdle();
             targetColor = Color.clear;
         } 
     } 
@@ -116,11 +118,12 @@ public class PlayerController : MonoBehaviour
             if (c.b_InTargetPoint) cur++;
         }
         b_won = cur == targ;
+        
     }
 
     private void FadePoints()
     {
-        foreach (var p in cp_allControlRenderers) p.color = Color.Lerp(p.color, targetColor, 0.7f);
+        foreach (var p in cp_allControlRenderers) p.color = Color.Lerp(p.color, targetColor, 0.9f);
     }
 
 
