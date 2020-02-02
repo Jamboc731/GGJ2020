@@ -869,6 +869,16 @@ PrefabInstance:
       propertyPath: OnPress.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: ActivateGameplayControl
       objectReference: {fileID: 0}
+    - target: {fileID: 3976521153600131991, guid: 5025f575bb3ec7742bf5286c280d3fde,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 285776039686498775, guid: 5025f575bb3ec7742bf5286c280d3fde,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5025f575bb3ec7742bf5286c280d3fde, type: 3}
 --- !u!1001 &209081659
@@ -1547,7 +1557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &686803326
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3004,7 +3014,6 @@ MonoBehaviour:
   V3_gamePosition: {x: 0, y: 3.66, z: -22}
   Im_blackImages:
   - {fileID: 686803327}
-  - {fileID: 0}
   f_lerpTime: 0.5
 --- !u!1 &1835672791 stripped
 GameObject:

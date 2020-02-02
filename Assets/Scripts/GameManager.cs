@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
 
         for(int i = 0; i < cp_controlPoints.Length; i++)
         {
-            Debug.Log(i);
+            //Debug.Log(i);
             cp_controlPoints[i].transform.position = cp_controlPoints[i].v3_pointStart;
             cp_controlPoints[i].ResetBones();
             cp_controlPoints[i].UpdateBones();
