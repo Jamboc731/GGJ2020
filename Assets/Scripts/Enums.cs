@@ -32,6 +32,7 @@ public enum GameStates
     mainmenu,
     training,
     running,
+    gameover,
     paused,
     exit
 }

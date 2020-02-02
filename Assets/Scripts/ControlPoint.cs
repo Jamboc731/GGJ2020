@@ -141,4 +141,10 @@ public class ControlPoint : MonoBehaviour
         return f_maxDistance - (transform.position - v3_targetPoint).magnitude;
     }
 
+    public void ResetBones()
+    {
+        for (int i = 0; i < tA_bones.Length; i++)
+            tA_bones[i].position = v3A_origins[i];
+    }
+
 }
