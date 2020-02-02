@@ -134,7 +134,7 @@ public class ControlPoint : MonoBehaviour
         transform.position = v3_targetPoint;
         UpdateBones();
     }
-    private void UpdateBones()
+    public void UpdateBones()
     {
         for (int i = 0; i < tA_bones.Length; i++)
             tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];

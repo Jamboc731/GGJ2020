@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     #region Level SO Variables
     [SerializeField] private LevelSO[] so_levels;
     [SerializeField] private ControlPoint[] cp_controlPoints;
+    public ControlPoint[] cp_ControlPoints { get { return cp_controlPoints; } }
 
     // An array that stores the story number that you're on, and the level.
     [SerializeField] StoryToTargets stt_storyToTargets;
@@ -32,7 +33,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ResetFace();
+        CamController.x.MenuPosition(false);
     }
 
     void Awake()
@@ -99,9 +101,12 @@ public class GameManager : MonoBehaviour
 
     public void ResetFace()
     {
+
         for(int i = 0; i < cp_controlPoints.Length; i++)
         {
+            cp_controlPoints[i].transform.position = cp_controlPoints[i].v3_pointStart;
             cp_controlPoints[i].ResetBones();
+            cp_controlPoints[i].UpdateBones();
         }
     }
 }

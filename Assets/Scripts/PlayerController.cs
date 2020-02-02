@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LayerMask controlPointMask;
     [SerializeField] private LayerMask menuMask;
     [SerializeField] private AudioClip touchClip;
+    [SerializeField] private Text scoreText;
 
     #endregion
 
@@ -48,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        cp_allControlPoints = FindObjectsOfType<ControlPoint>();
+        cp_allControlPoints = GameManager.x.cp_ControlPoints;
         cp_allControlRenderers = new SpriteRenderer[cp_allControlPoints.Length];
         for (int i = 0; i < cp_allControlPoints.Length; i++)
         {
@@ -73,6 +75,11 @@ public class PlayerController : MonoBehaviour
         else TouchUI();
     }
 
+    private void SetScoreText(float _f_score)
+    {
+        scoreText.text = _f_score.ToString();
+    }
+
     private void TouchUI()
     {
         if (Input.touchCount > 0)
@@ -81,7 +88,7 @@ public class PlayerController : MonoBehaviour
             //Debug.DrawRay(ray.origin, ray.direction.normalized * 10, Color.blue);
             if (Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, menuMask))
             {
-                print("touching ui");
+                //print("touching ui");
                 IPressable p = hit.collider.GetComponent<IPressable>();
                 if (p != null) p.press();
             }
@@ -98,21 +105,21 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < Input.touchCount && i < i_maxFingers; i++)
             {
                 ray = cam.ScreenPointToRay(Input.touches[i].position);
+                Debug.DrawRay(ray.origin, ray.direction.normalized * 10, Color.blue);
 
                 if (Input.touches[i].phase == TouchPhase.Began)
                 {
 
-
-                    Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, menuMask);
                     IPressable p = null;
-                    if (hit.collider != null) hit.collider.GetComponent<IPressable>();
-                    if (p != null) p.press();
 
-                        Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, controlPointMask);
-
-
+                    Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, controlPointMask);
                     if (hit.collider != null)
                     {
+                        p = hit.collider.GetComponent<IPressable>();
+                        if (p != null)
+                        {
+                            p.press();
+                        }
 
                         if (!lizzy.b_Animating) lizzy.SetAnimationBool("Fusetouching", true);
                         cp_currentControlPoints[Input.touches[i].fingerId] = hit.collider.GetComponent<ControlPoint>();

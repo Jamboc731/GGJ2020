@@ -31,7 +31,7 @@ public class MenuManager : MonoBehaviour
     #region Scenario Selections
     public void SelectedRestaurantDay(int _i_level)
     {
-        // gameManager.LoadLevel(_i_level)
+        GameManager.x.LoadLevel(_i_level);
         print("Should've turned the restaurant(day) on");
     }
     public void SelectedRestaurantNight()
@@ -43,6 +43,12 @@ public class MenuManager : MonoBehaviour
         print("Should've turned the wedding on");
     }
     #endregion
+
+    public void DistortFace()
+    {
+        print("Nedd to reenable the function");
+        //GameManager.x.DistortFace();
+    }
 
     #region Difficulty Selections
     public void ChosenEasyDifficulty()
@@ -73,11 +79,12 @@ public class MenuManager : MonoBehaviour
         print("Face has been turned off");
         PlayerController.x.b_CanControl = false;
         if (CamController.x != null)
-            CamController.x.MenuPosition(true);
+            CamController.x.MenuPosition(false);
     }
 
     public void ResetFaceToNeutral()
     {
+        GameManager.x.ResetFace();
         print("Should've reset the face to neutral, but I don't know how");
     }
 
