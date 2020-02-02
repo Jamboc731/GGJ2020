@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     private bool b_won = false;
     private float f_score;
     #endregion
+
     #region GetsAndSets
     public bool b_Won { get { return b_won; } }
     public bool b_CanControl { get { return b_canControl; } set { b_canControl = value; } }
@@ -61,29 +62,34 @@ public class PlayerController : MonoBehaviour
             FadePoints();
             if (b_playing) CheckWinState();
         }
+        else TouchUI();
+    }
+
+    private void TouchUI()
+    {
+        if(Input.touchCount > 0)
+        {
+            //ray = cam.ScreenPointToRay(Input.touches[0].position)
+        }
     }
 
     private void RecieveTouches()
     {
         if (Input.touchCount > 0)
         {
-            //ray = perspCam.ScreenPointToRay(Input.touches[0].position);
-            //Debug.DrawRay(ray.origin, ray.direction * 15, Color.blue);
-
-
             targetColor = Color.white;
             #region new
 
             for (int i = 0; i < Input.touchCount && i < i_maxFingers; i++)
             {
                 ray = cam.ScreenPointToRay(Input.touches[i].position);
-                //Debug.DrawRay(ray.origin, ray.direction * 15, Color.red);
+
                 if (Input.touches[i].phase == TouchPhase.Began)
                 {
-                    //Debug.Log("press");
+
                     if (Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, controlPointMask))
                     {
-                        //Debug.Log("hit control point");
+
                         if (!lizzy.b_Animating) lizzy.SetAnimationBool("Fusetouching", true);
                         cp_currentControlPoints[Input.touches[i].fingerId] = hit.collider.GetComponent<ControlPoint>();
                     }
