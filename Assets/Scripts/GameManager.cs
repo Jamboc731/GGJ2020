@@ -43,7 +43,8 @@ public class GameManager : MonoBehaviour
                 levelToLoad = level;
         if (levelToLoad != null)
         {
-            Instantiate(levelToLoad);
+            Destroy(go_background);
+            go_background = null;
             // Set the level background and all the bones target points
             go_background = levelToLoad.backgroundObject;
             Instantiate(go_background);
@@ -56,6 +57,7 @@ public class GameManager : MonoBehaviour
             //    for (int j = 0; j < storyToTargets.t_targetPoints.Length; j++)
             //        storyToTargets.t_targetPoints[j] = levelToLoad.boneOrigins[i][j];
             //}
+            SelectStoryText();
         }
         else
             s_textToShow = s_errorText;
