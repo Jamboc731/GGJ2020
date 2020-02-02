@@ -26,7 +26,7 @@ public class MenuManager : MonoBehaviour
 
         go_currentActiveCanvas.SetActive(true);
     }
-       
+
 
     #region Scenario Selections
     public void SelectedRestaurantDay(int _i_level)
@@ -64,12 +64,16 @@ public class MenuManager : MonoBehaviour
     {
         print("Should've turned the controls on");
         PlayerController.x.b_CanControl = true;
+        if (CamController.x != null)
+            CamController.x.GamePosition(false);
     }
 
     public void DisableGameplayControls()
     {
         print("Face has been turned off");
         PlayerController.x.b_CanControl = false;
+        if (CamController.x != null)
+            CamController.x.MenuPosition(true);
     }
 
     public void ResetFaceToNeutral()

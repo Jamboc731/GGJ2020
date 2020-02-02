@@ -78,8 +78,10 @@ public class PlayerController : MonoBehaviour
         if (Input.touchCount > 0)
         {
             ray = cam.ScreenPointToRay(Input.touches[0].position);
+            //Debug.DrawRay(ray.origin, ray.direction.normalized * 10, Color.blue);
             if (Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, menuMask))
             {
+                print("touching ui");
                 IPressable p = hit.collider.GetComponent<IPressable>();
                 if (p != null) p.press();
             }
@@ -102,7 +104,7 @@ public class PlayerController : MonoBehaviour
 
 
                     Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, menuMask);
-                    IPressable p;
+                    IPressable p = null;
                     if (hit.collider != null) hit.collider.GetComponent<IPressable>();
                     if (p != null) p.press();
 
