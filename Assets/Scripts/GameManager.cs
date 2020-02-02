@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager x;
+
     #region Enums
     public GameStates gameState;
     public Character ch_currentCharacter;
@@ -27,6 +29,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         
+    }
+
+    void Awake()
+    {
+        x = this;
     }
 
     // Update is called once per frame
@@ -74,6 +81,14 @@ public class GameManager : MonoBehaviour
         {
             cp_controlPoints[i].v3_TargetPoint = sttA_targets[storyID].t_targetPoints[i];
             cp_controlPoints[i].SetToTarget();
+        }
+    }
+
+    public void ResetFace()
+    {
+        for(int i = 0; i < cp_controlPoints.Length; i++)
+        {
+            cp_controlPoints[i].ResetBones();
         }
     }
 }
