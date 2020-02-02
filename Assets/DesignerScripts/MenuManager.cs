@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
+
+    public static MenuManager x;
+
     [Header("Canvases")]
     [SerializeField] private GameObject go_currentActiveCanvas;
     [Space]
@@ -13,6 +16,11 @@ public class MenuManager : MonoBehaviour
 
     //[Header("Other Managers")]
     private AudioManager am_audioManager;
+
+    private void Awake()
+    {
+        x = this;
+    }
 
     private void Start()
     {
@@ -32,6 +40,7 @@ public class MenuManager : MonoBehaviour
     public void SelectedRestaurantDay(int _i_level)
     {
         GameManager.x.LoadLevel(_i_level);
+        ActivateGameplayControl();
     }
     #endregion
 

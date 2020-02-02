@@ -17,7 +17,7 @@ public class ControlPoint : MonoBehaviour
     /// Random target for the bone to be repaired to.
     /// </summary>
     [SerializeField]
-    public Vector3 v3_TargetPoint { get { return v3_TargetPoint; } set { v3_targetPoint = value; } }
+    public Vector3 v3_TargetPoint { get { return v3_targetPoint; } set { v3_targetPoint = value; } }
     private Vector3 v3_targetPoint;
     #endregion
     /// <summary>
