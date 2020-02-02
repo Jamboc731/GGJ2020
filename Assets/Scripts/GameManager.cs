@@ -6,11 +6,12 @@ public class GameManager : MonoBehaviour
 {
     #region Enums
     public GameStates gameState;
-    public Character levelCharacter;
+    public Character ch_currentCharacter;
+    private Character[] ch_levelCharacter;
     #endregion
     #region Level SO Variables
     [SerializeField] private LevelSO[] so_levels;
-    [SerializeField] private ControlPoint[] controlPoints;
+    [SerializeField] private ControlPoint[] cp_controlPoints;
 
     // An array that stores the story number that you're on, and the level.
     [SerializeField] StoryToTargets stt_storyToTargets;
@@ -48,7 +49,6 @@ public class GameManager : MonoBehaviour
             // Set the level background and all the bones target points
             go_background = levelToLoad.backgroundObject;
             Instantiate(go_background);
-            levelCharacter = levelToLoad.character;
             s_storyTexts = levelToLoad.texts;
             sttA_targets = levelToLoad.storyTargets;
             //for (int i = 0; i < levelToLoad.boneOrigins.Length; i++)
@@ -68,11 +68,12 @@ public class GameManager : MonoBehaviour
     {
         int storyID = Random.Range(0, s_storyTexts.Length);
         s_textToShow = s_storyTexts[storyID];
+        ch_currentCharacter = ch_levelCharacter[storyID];
 
         for (int i = 0; i < sttA_targets[storyID].t_targetPoints.Length; i++)
         {
-            controlPoints[i].v3_TargetPoint = sttA_targets[storyID].t_targetPoints[i];
-            controlPoints[i].SetToTarget();
+            cp_controlPoints[i].v3_TargetPoint = sttA_targets[storyID].t_targetPoints[i];
+            cp_controlPoints[i].SetToTarget();
         }
     }
 }
