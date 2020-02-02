@@ -126,7 +126,7 @@ public class ControlPoint : MonoBehaviour
     }
     public void RandomizeDistortPoint(Vector3 _v3_delta)
     {
-        v3_distortPoint = _v3_delta + (Random.insideUnitSphere * f_contraint);
+        v3_distortPoint = _v3_delta + (Random.insideUnitSphere * f_maxDistance);
         SetPosition();
     }
 
