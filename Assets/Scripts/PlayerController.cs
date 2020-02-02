@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public static PlayerController x;
+
     #region SerializedVariables
 
     //[SerializeField] private GameObject[] goA_touchPoints;
@@ -12,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LizardController lizzy;
     [SerializeField] private int i_maxFingers = 2;
     [SerializeField] private LayerMask controlPointMask;
+    [SerializeField] private LayerMask menuMask;
     [SerializeField] private AudioClip touchClip;
 
     #endregion
@@ -37,6 +40,11 @@ public class PlayerController : MonoBehaviour
     public bool b_CanControl { get { return b_canControl; } set { b_canControl = value; } }
     public float f_Score { get { return f_score; } }
     #endregion
+
+    private void Awake()
+    {
+        x = this;
+    }
 
     private void Start()
     {
@@ -69,7 +77,12 @@ public class PlayerController : MonoBehaviour
     {
         if(Input.touchCount > 0)
         {
-            //ray = cam.ScreenPointToRay(Input.touches[0].position)
+            ray = cam.ScreenPointToRay(Input.touches[0].position);
+            if(Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, menuMask))
+            {
+                IPressable p = hit.collider.GetComponent<IPressable>();
+                if (p != null) p.press();
+            }
         }
     }
 

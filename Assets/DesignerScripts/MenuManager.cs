@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         am_audioManager = AudioManager.x;
+        PlayerController.x.b_CanControl = false;
     }
     public void ChangeActiveCanvas(GameObject _go_targetCanvas)
     {
@@ -61,7 +62,8 @@ public class MenuManager : MonoBehaviour
     #region Face Controls
     public void ActivateGameplayControl()
     {
-        print("Should've turned the controls on, but I don't know how");
+        print("Should've turned the controls on");
+        PlayerController.x.b_CanControl = true;
     }
     public void DisableGameplayControls()
     {
