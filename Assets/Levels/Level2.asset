@@ -13,7 +13,21 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   ID: 0
-  backgroundObject: {fileID: 0}
-  texts: []
-  storyTargets: []
-  character: 0
+  backgroundObject: {fileID: 100160, guid: b13935d87a7918f4c9cb6f1f87e0456c, type: 3}
+  texts:
+  - '"Do you love me Nick? ''Cos I love you!..."'
+  - '"I''ve invited my parents over for dinner this weekend, and they''re bringing
+    their pug. Is that okay?"'
+  - '"Pardon me Sir, other diners have informed me that you are poring shredder lubricant
+    oil on your Carbonara.. Is this true?"'
+  - '"Is everything okay with your meal Sir?"'
+  - '"Nick... I didn''t go to my parents yesterday, I was at the doctors... I''m pregnant!"'
+  - '"SIR! Was that YOU kicking that cat in the alley!?"'
+  storyTargets:
+  - t_targetPoints: []
+  - t_targetPoints: []
+  - t_targetPoints: []
+  - t_targetPoints: []
+  - t_targetPoints: []
+  - t_targetPoints: []
+  character: 030000000300000006000000060000000300000006000000

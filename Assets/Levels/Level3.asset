@@ -13,7 +13,25 @@ MonoBehaviour:
   m_Name: Level3
   m_EditorClassIdentifier: 
   ID: 0
-  backgroundObject: {fileID: 0}
-  texts: []
-  storyTargets: []
-  character: 0
+  backgroundObject: {fileID: 100000, guid: c8681d62223b9fc4bbc33096f4d8bf37, type: 3}
+  texts:
+  - '"You are NOT worthy of my daughter you lizard-brained charlatan!!"'
+  - '"I don''t care what my father, my family, my friends and ALL of my work colleagues
+    say... I think your special Nick and I love you very much!"'
+  - '"If anyone knows any reason these two should not be joined in matrimony, speak
+    now or forever hold your peace..."
+
+    *Nick''s Father-in-law shouts "HERETIC!!"*'
+  - '"Do you Nick, take thee Generic Love Interest, as your lawfully-wedded wife?..."'
+  - '"If you fuck this up, I will find you, AND I WILL FUCK YOU UP. I don''t care
+    HOW proficient your Tae-Kwon-Dough is."'
+  - '"There''s something off about you Nick... I do NOT trust you. Are you a frickin''
+    robot or somethin''!?"'
+  storyTargets:
+  - t_targetPoints: []
+  - t_targetPoints: []
+  - t_targetPoints: []
+  - t_targetPoints: []
+  - t_targetPoints: []
+  - t_targetPoints: []
+  character: 000000000300000004000000040000000000000000000000
