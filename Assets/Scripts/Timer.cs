@@ -17,6 +17,7 @@ public class Timer : MonoBehaviour
     int segmentsToComplete = 4;
     int currentSegment = 0;
     Slider s_slider;
+    public int currentLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +62,8 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            GameManager.x.SelectStoryText();
+            GameManager.x.LoadLevel(currentLevel);
+            b_running = false;
             currentSegment++;
         }
         //GameManager.x.SelectStoryText();

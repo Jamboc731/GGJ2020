@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
                 cp_controlPoints[i].v3_TargetPoint = sttA_targets[storyID].t_targetPoints[i];
                 cp_controlPoints[i].SetToTarget();
             }
+            timer.currentLevel = _i_levelID;
         }
     }
 

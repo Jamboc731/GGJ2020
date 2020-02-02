@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Level1
   m_EditorClassIdentifier: 
   ID: 0
-  backgroundObject: {fileID: 100160, guid: b13935d87a7918f4c9cb6f1f87e0456c, type: 3}
+  backgroundObject: {fileID: 4072284295728012918, guid: 5f5d006ccbc59484ca6dc40cb4982eac,
+    type: 3}
   texts:
   - '"Hey Nick, how''s that Carbonara?"'
   - '"Yo Nick what da fuck, those are my fries dude."'
