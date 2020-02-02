@@ -91,6 +91,12 @@ public class GameManager : MonoBehaviour
         gameState = GameStates.running;
     }
 
+    public void DistortFace()
+    {
+        for (int i = 0; i < cp_controlPoints.Length; i++)
+            cp_controlPoints[i].RandomizeDistortPoint(cp_controlPoints[i].v3_pointStart);
+    }
+
     public void ResetFace()
     {
         for(int i = 0; i < cp_controlPoints.Length; i++)

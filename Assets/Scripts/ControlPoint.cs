@@ -39,7 +39,7 @@ public class ControlPoint : MonoBehaviour
     #endregion
     #region Vectors
     private Vector3 v3_distortPoint;
-    private Vector3 v3_pointStart;
+    public Vector3 v3_pointStart;
     private Vector3 v3_driftPoint;
     #endregion
     #region Booleans
@@ -123,6 +123,10 @@ public class ControlPoint : MonoBehaviour
     public void RandomizeDistortPoint()
     {
         v3_distortPoint = v3_targetPoint + (Random.insideUnitSphere * f_contraint);
+    }
+    public void RandomizeDistortPoint(Vector3 _v3_delta)
+    {
+        v3_distortPoint = _v3_delta + (Random.insideUnitSphere * f_contraint);
     }
 
     public void SetToTarget()
