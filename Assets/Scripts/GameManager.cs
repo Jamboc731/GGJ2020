@@ -30,6 +30,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] TextBoxController tb_textBox;
     private float[] segmentTimes;
 
+    int storyID;
+
     int maxRecursions = 4;
 
     // Start is called before the first frame update
@@ -52,17 +54,17 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int _i_levelID)
     {
+        print("STILL ONLY ONCE");
         gameState = GameStates.loading;
         // Load in parameters for the level
-        LevelSO levelToLoad = null;
+        LevelSO levelToLoad = new LevelSO();
         foreach (LevelSO level in so_levels)
             if (level.ID == _i_levelID)
                 levelToLoad = level;
         if (levelToLoad != null)
         {
-            Destroy(go_background);
-            go_background = null;
             // Set the level background and all the bones target points
+            Destroy(go_background);
             go_background = levelToLoad.backgroundObject;
             GameObject b = Instantiate(go_background, backObj.transform);
             b.transform.localScale = Vector3.one;
@@ -79,23 +81,35 @@ public class GameManager : MonoBehaviour
             //        storyToTargets.t_targetPoints[j] = levelToLoad.boneOrigins[i][j];
             //}
             SelectStoryText();
+            for (int i = 0; i < cp_controlPoints.Length; i++)
+            {
+                cp_controlPoints[i].v3_TargetPoint = sttA_targets[storyID].t_targetPoints[i];
+                cp_controlPoints[i].SetToTarget();
+            }
         }
     }
 
     public void SelectStoryText()
     {
-        int storyID = Random.Range(0, s_storyTexts.Count);
+
+        storyID = Random.Range(0, s_storyTexts.Count);
+        //Debug.Log(storyID);
         ch_currentCharacter = ch_levelCharacter[storyID];
         timer.f_MaxTime = segmentTimes[storyID];
+        timer.f_CurrentTime = timer.f_MaxTime;
+        //Debug.Log(timer.f_MaxTime);
         for (int i = 0; i < sttA_targets[storyID].t_targetPoints.Length; i++)
         {
             cp_controlPoints[i].v3_TargetPoint = sttA_targets[storyID].t_targetPoints[i];
             cp_controlPoints[i].SetToTarget();
         }
         PlayAudio.playAudio.PlayVoice(ch_currentCharacter);
-        timer.b_Running = true;
+        //Debug.Log(0);
+        //timer.b_Running = true;
         tb_textBox.DisplayText(s_storyTexts[storyID]);
-        s_storyTexts.RemoveAt(storyID);
+        //Debug.Log(1);
+        //s_storyTexts.RemoveAt(storyID);
+        //Debug.Log(2);
         gameState = GameStates.running;
     }
 

@@ -74,4 +74,10 @@ MonoBehaviour:
     - {x: 0, y: 0, z: 0}
     - {x: 0, y: 0, z: 0}
   character: 030000000300000006000000060000000300000006000000
-  f_segmentTimes: []
+  f_segmentTimes:
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10
+  - 10

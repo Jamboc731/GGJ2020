@@ -11,31 +11,35 @@ public class TextBoxController : MonoBehaviour
     string textCurrentlyShown;
     Text t_thisText;
 
+    private void Start()
+    {
+    }
+
     public void DisplayText(string newText)
     {
-        enabled = true;
+        t_thisText = GetComponentInChildren<Text>();
+
+        gameObject.SetActive(true);
         textToShow = newText;
-        for (int i = 0; i < textToShow.Length; i++)
-        {
-            textCurrentlyShown += textToShow[i];
-            StartCoroutine(TextWait(i * 0.1f));
-            t_thisText.text = textCurrentlyShown;
-        }
-        StartCoroutine(TextKill(f_waitTime * textToShow.Length));
+
+
+
+        t_thisText.text = newText;
+
+        StartCoroutine(TextKill(f_waitTime));
+
     }
 
     void OnDisable()
     {
         t_timer.b_Running = true;
+        GameManager.x.DistortFace();
     }
 
-    IEnumerator TextWait(float _f_textTime)
-    {
-        yield return new WaitForSeconds(f_waitTime + _f_textTime);
-    }
+    
     IEnumerator TextKill(float _f_textTime)
     {
         yield return new WaitForSeconds(f_waitTime + _f_textTime);
-        enabled = false;
+        gameObject.SetActive(false);
     }
 }
