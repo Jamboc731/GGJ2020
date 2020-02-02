@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,13 +20,13 @@ public class GameManager : MonoBehaviour
     // An array that stores the story number that you're on, and the level.
     [SerializeField] StoryToTargets stt_storyToTargets;
     [SerializeField] private GameObject go_background;
-    [TextArea] private string[] s_storyTexts;
+    [TextArea] private List<string> s_storyTexts;
     #endregion
-    [SerializeField] [TextArea] private string s_textToShow;
     [SerializeField] [TextArea] private string s_errorText;
     [SerializeField] Timer timer;
     StoryToTargets[] sttA_targets;
 
+    [SerializeField] TextBoxController tb_textBox;
     private float[] segmentTimes;
 
     int maxRecursions = 4;
@@ -74,15 +75,11 @@ public class GameManager : MonoBehaviour
             //}
             SelectStoryText();
         }
-        else
-            s_textToShow = s_errorText;
-
     }
 
     public void SelectStoryText()
     {
-        int storyID = Random.Range(0, s_storyTexts.Length);
-        s_textToShow = s_storyTexts[storyID];
+        int storyID = Random.Range(0, s_storyTexts.Count);
         ch_currentCharacter = ch_levelCharacter[storyID];
         timer.f_MaxTime = segmentTimes[storyID];
         for (int i = 0; i < sttA_targets[storyID].t_targetPoints.Length; i++)
@@ -92,6 +89,8 @@ public class GameManager : MonoBehaviour
         }
         PlayAudio.playAudio.PlayVoice(ch_currentCharacter);
         timer.b_Running = true;
+        s_storyTexts.RemoveAt(storyID);
+        tb_textBox.DisplayText(s_storyTexts[storyID]);
         gameState = GameStates.running;
     }
 

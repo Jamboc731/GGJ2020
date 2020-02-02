@@ -32,15 +32,6 @@ public class MenuManager : MonoBehaviour
     public void SelectedRestaurantDay(int _i_level)
     {
         GameManager.x.LoadLevel(_i_level);
-        print("Should've turned the restaurant(day) on");
-    }
-    public void SelectedRestaurantNight()
-    {
-        print("Should've turned the restaurant(night) on");
-    }
-    public void SelectedWedding()
-    {
-        print("Should've turned the wedding on");
     }
     #endregion
 

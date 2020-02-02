@@ -13,7 +13,7 @@ public class LevelSO : ScriptableObject
 {
     public int ID;
     public GameObject backgroundObject;
-    [TextArea] public string[] texts;
+    [TextArea] public List<string> texts;
     public StoryToTargets[] storyTargets;
     public Character[] character;
     public float[] f_segmentTimes;
