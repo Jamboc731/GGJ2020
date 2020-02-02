@@ -105,21 +105,28 @@ public class PlayerController : MonoBehaviour
             for (int i = 0; i < Input.touchCount && i < i_maxFingers; i++)
             {
                 ray = cam.ScreenPointToRay(Input.touches[i].position);
-                Debug.DrawRay(ray.origin, ray.direction.normalized * 10, Color.blue);
+                //Debug.DrawRay(ray.origin, ray.direction.normalized * 10, Color.blue);
 
                 if (Input.touches[i].phase == TouchPhase.Began)
                 {
 
                     IPressable p = null;
 
-                    Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, controlPointMask);
+                    Physics.Raycast(ray, out hit, -cam.transform.position.z + 15, menuMask);
                     if (hit.collider != null)
                     {
                         p = hit.collider.GetComponent<IPressable>();
+                        Debug.Log("col");
                         if (p != null)
                         {
+                            Debug.Log("p");
                             p.press();
                         }
+
+                    }
+                    Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, controlPointMask);
+                    if (hit.collider != null)
+                    {
 
                         if (!lizzy.b_Animating) lizzy.SetAnimationBool("Fusetouching", true);
                         cp_currentControlPoints[Input.touches[i].fingerId] = hit.collider.GetComponent<ControlPoint>();

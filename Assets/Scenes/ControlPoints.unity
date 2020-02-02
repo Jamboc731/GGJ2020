@@ -157,7 +157,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2048
   touchClip: {fileID: 0}
-  scoreText: {fileID: 0}
+  scoreText: {fileID: 1389689993}
 --- !u!4 &44816494
 Transform:
   m_ObjectHideFlags: 0
@@ -547,7 +547,7 @@ PrefabInstance:
     - target: {fileID: 6775574297614538246, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6775574297614538246, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
@@ -587,17 +587,17 @@ PrefabInstance:
     - target: {fileID: 3187350690757582359, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9103847706577856896, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2367009312636795353, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 6775574297177841785, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
@@ -612,7 +612,7 @@ PrefabInstance:
     - target: {fileID: 2717744505476049695, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 2717744505476049695, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
@@ -652,22 +652,22 @@ PrefabInstance:
     - target: {fileID: 6308219567811076878, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 425501755408405657, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 120422426006858839, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 7185771516933499483, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 9196674747623112194, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
@@ -872,12 +872,12 @@ PrefabInstance:
     - target: {fileID: 3976521153600131991, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 285776039686498775, guid: 5025f575bb3ec7742bf5286c280d3fde,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5025f575bb3ec7742bf5286c280d3fde, type: 3}
@@ -1114,7 +1114,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &519344056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1557,7 +1557,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &686803326
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2200,6 +2200,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: aa8ceb50eb0a1f147bddc1425dea9e7b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b718930eed58db74698c22c430b0b696, type: 3}
+--- !u!114 &1389689993 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2131353645358793689, guid: 5025f575bb3ec7742bf5286c280d3fde,
+    type: 3}
+  m_PrefabInstance: {fileID: 121936458}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1572923109 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: d7724ab6b7ac273438a4b2a7f6f6f87d,
