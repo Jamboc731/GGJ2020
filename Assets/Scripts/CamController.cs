@@ -10,10 +10,10 @@ public class CamController : MonoBehaviour
 
     [SerializeField] private Vector3 V3_menuPosition;
     [SerializeField] private Vector3 V3_gamePosition;
-    [SerializeField] private Image Im_blackImage;
+    [SerializeField] private Image[] Im_blackImages;
     [SerializeField] private float f_lerpTime;
 
-    private void Start()
+    private void Awake()
     {
         x = this;
     }
@@ -21,13 +21,19 @@ public class CamController : MonoBehaviour
     public void MenuPosition(bool _b_showBlack)
     {
         StartCoroutine(GoToPoint(V3_menuPosition, f_lerpTime));
-        Im_blackImage.CrossFadeAlpha(_b_showBlack ? 1 : 0, f_lerpTime, true);
+        foreach (var i in Im_blackImages)
+        {
+            i.CrossFadeAlpha(_b_showBlack ? 1 : 0, f_lerpTime, true);
+        }
     }
 
     public void GamePosition(bool _b_showBlack)
     {
         StartCoroutine(GoToPoint(V3_gamePosition, f_lerpTime));
-        Im_blackImage.CrossFadeAlpha(_b_showBlack ? 1 : 0, f_lerpTime, true);
+        foreach (var i in Im_blackImages)
+        {
+            i.CrossFadeAlpha(_b_showBlack ? 1 : 0, f_lerpTime, true);
+        }
 
     }
 

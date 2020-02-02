@@ -30,8 +30,10 @@ public enum Character
 public enum GameStates
 {
     mainmenu,
-    training,
+    loading,
+    freeplay,
     running,
+    gameover,
     paused,
     exit
 }

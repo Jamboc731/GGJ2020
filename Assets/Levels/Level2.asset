@@ -18,16 +18,60 @@ MonoBehaviour:
   - '"Do you love me Nick? ''Cos I love you!..."'
   - '"I''ve invited my parents over for dinner this weekend, and they''re bringing
     their pug. Is that okay?"'
-  - '"Pardon me Sir, other diners have informed me that you are poring shredder lubricant
-    oil on your Carbonara.. Is this true?"'
-  - '"Is everything okay with your meal Sir?"'
-  - '"Nick... I didn''t go to my parents yesterday, I was at the doctors... I''m pregnant!"'
+  - '"Pardon me Sir, other diners have informed me that you have been pouring shredder
+    lubricant oil on your Carbonara.. Is this true?"'
+  - '"Excuse me sir... your lack of shoes, and public display of your toes is making
+    the other guests uncomfortable."'
+  - '"Nick... I didn''t go to my parents yesterday... I was at the doctors... I''m
+    pregnant!"'
   - '"SIR! Was that YOU kicking that cat in the alley!?"'
   storyTargets:
-  - t_targetPoints: []
-  - t_targetPoints: []
-  - t_targetPoints: []
-  - t_targetPoints: []
-  - t_targetPoints: []
-  - t_targetPoints: []
+  - t_targetPoints:
+    - {x: 1.02, y: 2.8, z: 1.5}
+    - {x: -1, y: 2.82, z: 1.5}
+    - {x: -0.23, y: 4, z: 1.5}
+    - {x: -1.03, y: 3.95, z: 1.5}
+    - {x: 1.02, y: 3.95, z: 1.5}
+    - {x: 0.203, y: 4.02, z: 1.5}
+    - {x: 0, y: 3.12, z: 1.5}
+  - t_targetPoints:
+    - {x: 0.55, y: 1.96, z: 1.5}
+    - {x: -0.34, y: 2.04, z: 1.5}
+    - {x: -0.2, y: 4.79, z: 1.5}
+    - {x: -1.03, y: 3.6, z: 1.5}
+    - {x: 1.02, y: 3.6, z: 1.5}
+    - {x: 0.18, y: 4.9, z: 1.5}
+    - {x: -0.05, y: 0.22, z: 1.5}
+  - t_targetPoints:
+    - {x: 0.6, y: 2.6, z: 1.5}
+    - {x: -0.6, y: 2.6, z: 1.5}
+    - {x: -0.23, y: 3.45, z: 1.5}
+    - {x: -1.03, y: 4.1, z: 1.5}
+    - {x: 1.02, y: 4.1, z: 1.5}
+    - {x: 0.2, y: 3.4, z: 1.5}
+    - {x: 0, y: 3.1, z: 1.5}
+  - t_targetPoints:
+    - {x: 1.1, y: 3.27, z: 1.5}
+    - {x: -1.08, y: 3.17, z: 1.5}
+    - {x: -0.23, y: 3.12, z: 1.5}
+    - {x: -0.86, y: 4.58, z: 1.5}
+    - {x: 0.77, y: 4.44, z: 1.5}
+    - {x: 0.24, y: 3.13, z: 1.5}
+    - {x: 0, y: 0.74, z: 1.5}
+  - t_targetPoints:
+    - {x: 0.385, y: 1.89, z: 1.5}
+    - {x: -0.32, y: 2.05, z: 1.5}
+    - {x: -0.23, y: 3.7, z: 1.5}
+    - {x: -1.3, y: 3.77, z: 1.5}
+    - {x: 1.3, y: 3.75, z: 1.5}
+    - {x: 0.21, y: 3.8, z: 1.5}
+    - {x: 0, y: 2.9, z: 1.5}
+  - t_targetPoints:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
   character: 030000000300000006000000060000000300000006000000
