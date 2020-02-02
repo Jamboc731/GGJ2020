@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
 
     private float[] segmentTimes;
 
-
+    int maxRecursions = 4;
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void LoadLevel(int _i_levelID)
@@ -95,14 +95,23 @@ public class GameManager : MonoBehaviour
 
     public void DistortFace()
     {
+        InternalDistortFace(0);
+    }
+
+    private void InternalDistortFace(int iteration)
+    {
+        if (iteration == maxRecursions)
+            return;
         for (int i = 0; i < cp_controlPoints.Length; i++)
             cp_controlPoints[i].RandomizeDistortPoint(cp_controlPoints[i].v3_pointStart);
+        InternalDistortFace(iteration++);
+        return;
     }
 
     public void ResetFace()
     {
 
-        for(int i = 0; i < cp_controlPoints.Length; i++)
+        for (int i = 0; i < cp_controlPoints.Length; i++)
         {
             //Debug.Log(i);
             cp_controlPoints[i].transform.position = cp_controlPoints[i].v3_pointStart;

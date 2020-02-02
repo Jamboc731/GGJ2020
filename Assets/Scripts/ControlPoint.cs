@@ -53,8 +53,7 @@ public class ControlPoint : MonoBehaviour
 
     #endregion
 
-    int maxRecursions = 4;
-    int currentRecursion;
+
     #endregion
     // Start is called before the first frame update
     void Start()
@@ -131,10 +130,6 @@ public class ControlPoint : MonoBehaviour
     {
         v3_distortPoint = _v3_delta + (Random.insideUnitSphere * f_maxDistance);
         SetPosition();
-        if (currentRecursion != maxRecursions)
-            RandomizeDistortPoint();
-        else if (currentRecursion >= maxRecursions)
-            currentRecursion = 0;
     }
 
     public void SetToTarget()
