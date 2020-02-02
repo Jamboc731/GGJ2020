@@ -100,7 +100,7 @@ public class GameManager : MonoBehaviour
 
     private void InternalDistortFace(int iteration)
     {
-        if (iteration == maxRecursions)
+        if (iteration >= maxRecursions)
             return;
         for (int i = 0; i < cp_controlPoints.Length; i++)
             cp_controlPoints[i].RandomizeDistortPoint(cp_controlPoints[i].v3_pointStart);
