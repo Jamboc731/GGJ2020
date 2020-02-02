@@ -14,6 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   backgroundObject: {fileID: 0}
-  texts: []
-  storyTargets: []
+  texts:
+  - '"Hey Nick, how''s that Carbonara?"'
+  - '"Yo Nick what da fuck, those are my fries dude."'
+  - '"You know what Nick, you''re off the team."'
+  - '"Yo Nick, ''bout ''dis film ''doe. Any good?"'
+  - '"By the way Nick, you''re back on the team."'
+  - 
+  storyTargets:
+  - t_targetPoints: []
+  - t_targetPoints: []
+  - t_targetPoints: []
+  - t_targetPoints: []
+  - t_targetPoints: []
+  - t_targetPoints: []
   character: 0
