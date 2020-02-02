@@ -6,6 +6,7 @@ public class Timer : MonoBehaviour
 {
     public float f_MaxTime { get { return f_maxTime; } set { f_MaxTime = value; } }
     private float f_maxTime;
+    public float f_CurrentTime { get { return f_currentTime; } set { f_currentTime = value; } }
     private float f_currentTime;
     public bool b_Running { get { return b_running; } set { b_running = value; } }
     private bool b_running;
