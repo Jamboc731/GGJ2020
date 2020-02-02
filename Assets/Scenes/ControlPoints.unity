@@ -153,6 +153,7 @@ MonoBehaviour:
   controlPointMask:
     serializedVersion: 2
     m_Bits: 1024
+  touchClip: {fileID: 0}
 --- !u!4 &44816494
 Transform:
   m_ObjectHideFlags: 0
@@ -300,6 +301,60 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1645389806}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &471115366
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 471115368}
+  - component: {fileID: 471115367}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &471115367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471115366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21e7c771d71d24e419d8d03a305fd602, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  acA_Voice: []
+  acA_Music: []
+  acA_SFX: []
+  acA_ButtonEffect:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  as_Voice: {fileID: 0}
+  as_SFX: {fileID: 0}
+  as_Music: {fileID: 0}
+--- !u!4 &471115368
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 471115366}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.50038767, y: 3.572675, z: 5.9363832}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &551591981 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400020, guid: d7724ab6b7ac273438a4b2a7f6f6f87d,
@@ -402,14 +457,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   f_contraint: 0
   f_maxDistance: 0.9
-  f_driftDelta: 0.5
+  f_targetRadius: 0
   tA_bones:
   - {fileID: 403779894}
   - {fileID: 551591981}
   fA_boneWeights:
   - 1
   - 0.5
-  b_drifitng: 0
 --- !u!54 &556149510
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -625,7 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   f_contraint: 0
   f_maxDistance: 0.8
-  f_driftDelta: 0.1
+  f_targetRadius: 0
   tA_bones:
   - {fileID: 2056517773}
   - {fileID: 6548847}
@@ -642,7 +696,6 @@ MonoBehaviour:
   - 0.1
   - 0.3
   - 1
-  b_drifitng: 0
 --- !u!54 &702241753
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -816,14 +869,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   f_contraint: 0
   f_maxDistance: 0.5
-  f_driftDelta: 0.5
+  f_targetRadius: 0
   tA_bones:
   - {fileID: 463088265}
   - {fileID: 551591981}
   fA_boneWeights:
   - 1
   - 0.5
-  b_drifitng: 0
 --- !u!54 &720202774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -956,7 +1008,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   f_contraint: 0
   f_maxDistance: 0.8
-  f_driftDelta: 0.1
+  f_targetRadius: 0
   tA_bones:
   - {fileID: 933947570}
   - {fileID: 1708322458}
@@ -973,7 +1025,6 @@ MonoBehaviour:
   - 0.1
   - 0.3
   - 1
-  b_drifitng: 0
 --- !u!54 &1110523114
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1265,7 +1316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   f_contraint: 0
   f_maxDistance: 1.5
-  f_driftDelta: 0.1
+  f_targetRadius: 0
   tA_bones:
   - {fileID: 1231449785}
   - {fileID: 557884719}
@@ -1280,7 +1331,6 @@ MonoBehaviour:
   - 0.5
   - 0.2
   - 0.15
-  b_drifitng: 0
 --- !u!54 &1579519803
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1497,14 +1547,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   f_contraint: 0
   f_maxDistance: 0.9
-  f_driftDelta: 0.5
+  f_targetRadius: 0
   tA_bones:
   - {fileID: 1750583163}
   - {fileID: 344027154}
   fA_boneWeights:
   - 1
   - 0.5
-  b_drifitng: 0
 --- !u!54 &1616892306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1996,14 +2045,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   f_contraint: 0
   f_maxDistance: 0.5
-  f_driftDelta: 0.5
+  f_targetRadius: 0
   tA_bones:
   - {fileID: 1944616182}
   - {fileID: 344027154}
   fA_boneWeights:
   - 1
   - 0.5
-  b_drifitng: 0
 --- !u!54 &1930072652
 Rigidbody:
   m_ObjectHideFlags: 0
