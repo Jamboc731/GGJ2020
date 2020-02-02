@@ -55,9 +55,12 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
 
-        if (b_canControl) RecieveTouches();
-        FadePoints();
-        if(b_playing) CheckWinState();
+        if (b_canControl)
+        {
+            RecieveTouches();
+            FadePoints();
+            if (b_playing) CheckWinState();
+        }
     }
 
     private void RecieveTouches()
