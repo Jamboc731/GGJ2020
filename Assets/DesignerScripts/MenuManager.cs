@@ -17,6 +17,7 @@ public class MenuManager : MonoBehaviour
     private void Start()
     {
         am_audioManager = AudioManager.x;
+        PlayerController.x.b_CanControl = false;
     }
     public void ChangeActiveCanvas(GameObject _go_targetCanvas)
     {
@@ -61,11 +62,14 @@ public class MenuManager : MonoBehaviour
     #region Face Controls
     public void ActivateGameplayControl()
     {
-        print("Should've turned the controls on, but I don't know how");
+        print("Should've turned the controls on");
+        PlayerController.x.b_CanControl = true;
     }
+
     public void DisableGameplayControls()
     {
         print("Face has been turned off");
+        PlayerController.x.b_CanControl = false;
     }
 
     public void ResetFaceToNeutral()
@@ -76,11 +80,13 @@ public class MenuManager : MonoBehaviour
     public void ResumeFace()
     {
         print("Face has been resumed");
+        ActivateGameplayControl();
     }
 
     public void PauseFace()
     {
         print("Should've paused the face, but I don't know how");
+        DisableGameplayControls();
     }
     #endregion
 

@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    public static PlayerController x;
+
     #region SerializedVariables
 
     //[SerializeField] private GameObject[] goA_touchPoints;
@@ -12,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private LizardController lizzy;
     [SerializeField] private int i_maxFingers = 2;
     [SerializeField] private LayerMask controlPointMask;
+    [SerializeField] private LayerMask menuMask;
     [SerializeField] private AudioClip touchClip;
 
     #endregion
@@ -37,6 +40,11 @@ public class PlayerController : MonoBehaviour
     public bool b_CanControl { get { return b_canControl; } set { b_canControl = value; } }
     public float f_Score { get { return f_score; } }
     #endregion
+
+    private void Awake()
+    {
+        x = this;
+    }
 
     private void Start()
     {
@@ -67,9 +75,14 @@ public class PlayerController : MonoBehaviour
 
     private void TouchUI()
     {
-        if(Input.touchCount > 0)
+        if (Input.touchCount > 0)
         {
-            //ray = cam.ScreenPointToRay(Input.touches[0].position)
+            ray = cam.ScreenPointToRay(Input.touches[0].position);
+            if (Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, menuMask))
+            {
+                IPressable p = hit.collider.GetComponent<IPressable>();
+                if (p != null) p.press();
+            }
         }
     }
 
@@ -87,7 +100,16 @@ public class PlayerController : MonoBehaviour
                 if (Input.touches[i].phase == TouchPhase.Began)
                 {
 
-                    if (Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, controlPointMask))
+
+                    Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, menuMask);
+                    IPressable p;
+                    if (hit.collider != null) hit.collider.GetComponent<IPressable>();
+                    if (p != null) p.press();
+
+                        Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, controlPointMask);
+
+
+                    if (hit.collider != null)
                     {
 
                         if (!lizzy.b_Animating) lizzy.SetAnimationBool("Fusetouching", true);
@@ -102,7 +124,7 @@ public class PlayerController : MonoBehaviour
                     if (Input.touches[i].phase == TouchPhase.Ended)
                     {
                         cp_currentControlPoints[Input.touches[i].fingerId] = null;
-                        AudioManager.x.PlaySFX(touchClip, .8f, 1.2f); 
+                        AudioManager.x.PlaySFX(touchClip, .8f, 1.2f);
 
                     }
                 }
@@ -112,14 +134,14 @@ public class PlayerController : MonoBehaviour
             #endregion
 
         }
-        else 
+        else
         {
             if (b_won) lizzy.SetAnimationBool("Goodjob", true);
             else
                 lizzy.BackToIdle();
             targetColor = Color.clear;
-        } 
-    } 
+        }
+    }
 
     private void CheckWinState()
     {
@@ -133,7 +155,7 @@ public class PlayerController : MonoBehaviour
         }
         b_won = cur == targ;
         b_playing = !b_won;
-        
+
     }
 
     private void FadePoints()
