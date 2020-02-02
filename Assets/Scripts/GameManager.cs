@@ -43,8 +43,10 @@ public class GameManager : MonoBehaviour
                 levelToLoad = level;
         if (levelToLoad != null)
         {
+            Instantiate(levelToLoad);
             // Set the level background and all the bones target points
             go_background = levelToLoad.backgroundObject;
+            Instantiate(go_background);
             levelCharacter = levelToLoad.character;
             s_storyTexts = levelToLoad.texts;
             sttA_targets = levelToLoad.storyTargets;
