@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
         cp_allControlRenderers = new SpriteRenderer[cp_allControlPoints.Length];
         for (int i = 0; i < cp_allControlPoints.Length; i++)
         {
-            cp_allControlPoints[i].b_Drifting = true;
             cp_allControlRenderers[i] = cp_allControlPoints[i].GetComponent<SpriteRenderer>();
         }
 
