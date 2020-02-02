@@ -14,7 +14,8 @@ public class Timer : MonoBehaviour
     public bool b_Running { get { return b_running; } set { b_running = value; } }
     private bool b_running = false;
 
-    int segmentsToComplete;
+    int segmentsToComplete = 4;
+    int currentSegment = 0;
     Slider s_slider;
 
     // Start is called before the first frame update
@@ -49,7 +50,7 @@ public class Timer : MonoBehaviour
 
     void TriggerEnd()
     {
-        if (b_running)
+        if (b_running && currentSegment == segmentsToComplete)
         {
             b_running = false;
 
@@ -57,6 +58,11 @@ public class Timer : MonoBehaviour
             MenuManager.x.ResetFaceToNeutral();
             MenuManager.x.DisableGameplayControls();
 
+        }
+        else
+        {
+            GameManager.x.SelectStoryText();
+            currentSegment++;
         }
         //GameManager.x.SelectStoryText();
     }
