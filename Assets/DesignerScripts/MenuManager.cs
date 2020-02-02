@@ -47,7 +47,7 @@ public class MenuManager : MonoBehaviour
     public void DistortFace()
     {
         print("Nedd to reenable the function");
-        //GameManager.x.DistortFace();
+        GameManager.x.DistortFace();
     }
 
     #region Difficulty Selections
@@ -84,8 +84,8 @@ public class MenuManager : MonoBehaviour
 
     public void ResetFaceToNeutral()
     {
-        GameManager.x.ResetFace();
         print("Should've reset the face to neutral, but I don't know how");
+        GameManager.x.ResetFace();
     }
 
     public void ResumeFace()
