@@ -90,6 +90,8 @@ public class GameManager : MonoBehaviour
             cp_controlPoints[i].v3_TargetPoint = sttA_targets[storyID].t_targetPoints[i];
             cp_controlPoints[i].SetToTarget();
         }
+        PlayAudio.playAudio.PlayVoice(ch_currentCharacter);
+        timer.b_Running = true;
         gameState = GameStates.running;
     }
 
