@@ -101,7 +101,7 @@ public class ControlPoint : MonoBehaviour
     /// </summary>
     public void SetPosition()
     {
-        rb.position = Vector3.Lerp(rb.position, v3_distortPoint, 0.98f);
+        rb.position = v3_distortPoint;
         for (int i = 0; i < tA_bones.Length; i++)
             tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
     }
