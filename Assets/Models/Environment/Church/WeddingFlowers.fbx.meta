@@ -1,32 +1,16 @@
 fileFormatVersion: 2
-guid: 5aded1c2f18ab264494b69e01c64c2b5
+guid: a696bb60edef1b44698f1a5004f0d351
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Extras
-    100004: Pews
-    100006: WallsFloor
     400000: //RootNode
-    400002: Extras
-    400004: Pews
-    400006: WallsFloor
-    2100000: T_Church_Wood_1Material
-    2100002: T_Church_Walls_1Material
-    2100004: T_Church__Sky_1Material
-    2100006: T_Church__Red_1Material
-    2100008: T_Church_Cloth_1Material
-    2100010: T_Church_BlackTrim_1Material
-    2100012: T_Church_Flame_1Material
-    2300000: Extras
-    2300002: Pews
-    2300004: WallsFloor
-    3300000: Extras
-    3300002: Pews
-    3300004: WallsFloor
-    4300000: Pews
-    4300002: WallsFloor
-    4300004: Extras
+    2100000: T_Restaurant_Leaves_1Material
+    2100002: T_Church__Red_1Material
+    2100004: T_Church_BlackTrim_1Material
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Flowers
   externalObjects: {}
   materials:
     importMaterials: 1
