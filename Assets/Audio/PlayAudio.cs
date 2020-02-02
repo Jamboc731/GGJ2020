@@ -18,7 +18,7 @@ public class PlayAudio : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            AM.PlayVoice(0, 5, 15, D_cci_characterDictionary[c_tempCharacter]);
+            AM.PlayVoice(15, D_cci_characterDictionary[c_tempCharacter]);
             print("pressed space");
         }
     }
