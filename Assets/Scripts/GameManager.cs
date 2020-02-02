@@ -89,8 +89,8 @@ public class GameManager : MonoBehaviour
         }
         PlayAudio.playAudio.PlayVoice(ch_currentCharacter);
         timer.b_Running = true;
-        s_storyTexts.RemoveAt(storyID);
         tb_textBox.DisplayText(s_storyTexts[storyID]);
+        s_storyTexts.RemoveAt(storyID);
         gameState = GameStates.running;
     }
 
