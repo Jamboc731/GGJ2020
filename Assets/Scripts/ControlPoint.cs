@@ -39,7 +39,7 @@ public class ControlPoint : MonoBehaviour
     #endregion
     #region Vectors
     private Vector3 v3_distortPoint;
-    private Vector3 v3_pointStart;
+    public Vector3 v3_pointStart;
     private Vector3 v3_driftPoint;
     #endregion
     #region Booleans
@@ -124,13 +124,17 @@ public class ControlPoint : MonoBehaviour
     {
         v3_distortPoint = v3_targetPoint + (Random.insideUnitSphere * f_contraint);
     }
+    public void RandomizeDistortPoint(Vector3 _v3_delta)
+    {
+        v3_distortPoint = _v3_delta + (Random.insideUnitSphere * f_contraint);
+    }
 
     public void SetToTarget()
     {
         transform.position = v3_targetPoint;
         UpdateBones();
     }
-    private void UpdateBones()
+    public void UpdateBones()
     {
         for (int i = 0; i < tA_bones.Length; i++)
             tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
@@ -139,6 +143,13 @@ public class ControlPoint : MonoBehaviour
     public float GetScore()
     {
         return f_maxDistance - (transform.position - v3_targetPoint).magnitude;
+    }
+
+    public void ResetBones()
+    {
+        for (int i = 0; i < tA_bones.Length; i++)
+            tA_bones[i].position = v3A_origins[i];
+        transform.position = v3_pointStart;
     }
 
 }

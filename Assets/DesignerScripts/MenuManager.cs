@@ -11,9 +11,14 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject go_ScenarioGamePlayCanvas;
     [SerializeField] private GameObject go_FreestyleGamePlayCanvas;
 
-    [Header("Other Managers")]
-    [SerializeField] private AudioManager am_audioManager;
+    //[Header("Other Managers")]
+    private AudioManager am_audioManager;
 
+    private void Start()
+    {
+        am_audioManager = AudioManager.x;
+        PlayerController.x.b_CanControl = false;
+    }
     public void ChangeActiveCanvas(GameObject _go_targetCanvas)
     {
         go_currentActiveCanvas.SetActive(false);
@@ -21,12 +26,12 @@ public class MenuManager : MonoBehaviour
 
         go_currentActiveCanvas.SetActive(true);
     }
-       
+
 
     #region Scenario Selections
     public void SelectedRestaurantDay(int _i_level)
     {
-        // gameManager.LoadLevel(_i_level)
+        GameManager.x.LoadLevel(_i_level);
         print("Should've turned the restaurant(day) on");
     }
     public void SelectedRestaurantNight()
@@ -38,6 +43,12 @@ public class MenuManager : MonoBehaviour
         print("Should've turned the wedding on");
     }
     #endregion
+
+    public void DistortFace()
+    {
+        print("Nedd to reenable the function");
+        //GameManager.x.DistortFace();
+    }
 
     #region Difficulty Selections
     public void ChosenEasyDifficulty()
@@ -57,26 +68,36 @@ public class MenuManager : MonoBehaviour
     #region Face Controls
     public void ActivateGameplayControl()
     {
-        print("Should've turned the controls on, but I don't know how");
+        print("Should've turned the controls on");
+        PlayerController.x.b_CanControl = true;
+        if (CamController.x != null)
+            CamController.x.GamePosition(false);
     }
+
     public void DisableGameplayControls()
     {
         print("Face has been turned off");
+        PlayerController.x.b_CanControl = false;
+        if (CamController.x != null)
+            CamController.x.MenuPosition(false);
     }
 
     public void ResetFaceToNeutral()
     {
+        GameManager.x.ResetFace();
         print("Should've reset the face to neutral, but I don't know how");
     }
 
     public void ResumeFace()
     {
         print("Face has been resumed");
+        ActivateGameplayControl();
     }
 
     public void PauseFace()
     {
         print("Should've paused the face, but I don't know how");
+        DisableGameplayControls();
     }
     #endregion
 
