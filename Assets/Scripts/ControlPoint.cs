@@ -26,7 +26,7 @@ public class ControlPoint : MonoBehaviour
     [SerializeField]
     private float f_maxDistance;
     [SerializeField]
-    private float f_driftDelta;
+    private float f_targetRadius;
     #region Arrays
     [SerializeField]
     private Transform[] tA_bones;
@@ -43,9 +43,6 @@ public class ControlPoint : MonoBehaviour
     private Vector3 v3_driftPoint;
     #endregion
     #region Booleans
-    public bool b_Drifting { get { return b_drifitng; } set { b_drifitng = value; } }
-    [SerializeField]
-    private bool b_drifitng;
     public bool b_Distorting { get { return b_distorting; } set { b_distorting = value; } }
     /// <summary>
     /// Toggle for if the face is currently distorting
@@ -76,12 +73,9 @@ public class ControlPoint : MonoBehaviour
         else if (rb.position == v3_distortPoint && b_distorting)
             b_distorting = false;
         #endregion
-        #region Drift checking
-        if (b_drifitng)
-            SetPosition(rb.position);
-        #endregion
         #region Target point check
-        if ((transform.position - v3_targetPoint).magnitude >= (v3_targetPoint + Random.insideUnitSphere).magnitude)
+        // If you're within range of the target point set in target to true. If it's set to true and you're not within range set back to false
+        if ((transform.position - v3_targetPoint).magnitude >= (v3_targetPoint * f_targetRadius).magnitude)
             b_inTargetPoint = true;
         else if (b_inTargetPoint == true)
             b_inTargetPoint = false;
@@ -133,10 +127,4 @@ public class ControlPoint : MonoBehaviour
     {
         v3_distortPoint = v3_targetPoint + (Random.insideUnitSphere * f_contraint);
     }
-
-    public void RandomizedDrifting()
-    {
-        //rb.AddForce(new Vector3(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f), 0.0f).normalized * f_driftDelta, ForceMode.Impulse);
-    }
-
 }
