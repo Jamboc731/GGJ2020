@@ -22,4 +22,5 @@ public class Timer : MonoBehaviour
         f_currentTime -= b_running ? Time.deltaTime : 0;
         GameManager.x.gameState = f_currentTime < 0 ? GameStates.gameover : GameStates.running;
     }
+
 }

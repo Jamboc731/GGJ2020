@@ -22,7 +22,11 @@ public class GameManager : MonoBehaviour
     #endregion
     [SerializeField] [TextArea] private string s_textToShow;
     [SerializeField] [TextArea] private string s_errorText;
+    [SerializeField] Timer timer;
     StoryToTargets[] sttA_targets;
+
+    private float[] segmentTimes;
+
 
 
     // Start is called before the first frame update
@@ -44,6 +48,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int _i_levelID)
     {
+        gameState = GameStates.loading;
         // Load in parameters for the level
         LevelSO levelToLoad = null;
         foreach (LevelSO level in so_levels)
@@ -58,6 +63,7 @@ public class GameManager : MonoBehaviour
             Instantiate(go_background);
             s_storyTexts = levelToLoad.texts;
             sttA_targets = levelToLoad.storyTargets;
+            segmentTimes = levelToLoad.f_segmentTimes;
             //for (int i = 0; i < levelToLoad.boneOrigins.Length; i++)
             //{
             //    storyToTargets.i_storyID[i] = i;
@@ -76,12 +82,13 @@ public class GameManager : MonoBehaviour
         int storyID = Random.Range(0, s_storyTexts.Length);
         s_textToShow = s_storyTexts[storyID];
         ch_currentCharacter = ch_levelCharacter[storyID];
-
+        timer.f_MaxTime = segmentTimes[storyID];
         for (int i = 0; i < sttA_targets[storyID].t_targetPoints.Length; i++)
         {
             cp_controlPoints[i].v3_TargetPoint = sttA_targets[storyID].t_targetPoints[i];
             cp_controlPoints[i].SetToTarget();
         }
+        gameState = GameStates.running;
     }
 
     public void ResetFace()
