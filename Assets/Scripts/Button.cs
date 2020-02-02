@@ -6,11 +6,11 @@ using UnityEngine.Events;
 public class Button : MonoBehaviour, IPressable
 {
 
-    [SerializeField] private UnityAction OnPress;
+    public UnityEvent OnPress;
 
     public void press()
     {
-        OnPress();
+        OnPress.Invoke();
     }
 }
 
