@@ -48,7 +48,7 @@ public class ControlPoint : MonoBehaviour
     /// Toggle for if the face is currently distorting
     /// </summary>
     private bool b_distorting;
-    public bool b_InTargetPoint { get { return b_inTargetPoint;  } }
+    public bool b_InTargetPoint { get { return b_inTargetPoint; } }
     private bool b_inTargetPoint;
 
     #endregion
@@ -79,7 +79,7 @@ public class ControlPoint : MonoBehaviour
             b_inTargetPoint = true;
         else if (b_inTargetPoint == true)
             b_inTargetPoint = false;
-            
+
         #endregion
     }
 
@@ -122,11 +122,12 @@ public class ControlPoint : MonoBehaviour
     /// </summary>
     public void RandomizeDistortPoint()
     {
-        v3_distortPoint = v3_targetPoint + (Random.insideUnitSphere * f_contraint);
+        v3_distortPoint = v3_targetPoint + (Random.insideUnitSphere * f_maxDistance);
     }
     public void RandomizeDistortPoint(Vector3 _v3_delta)
     {
-        v3_distortPoint = _v3_delta + (Random.insideUnitSphere * f_contraint);
+        v3_distortPoint = _v3_delta + (Random.insideUnitSphere * f_maxDistance);
+        SetPosition();
     }
 
     public void SetToTarget()
@@ -137,9 +138,9 @@ public class ControlPoint : MonoBehaviour
     public void UpdateBones()
     {
         for (int i = 0; i < tA_bones.Length; i++)
-            tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
+            tA_bones[i].position = Vector3.Lerp(tA_bones[i].position, v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i], 0.4f);
     }
-    
+
     public float GetScore()
     {
         return f_maxDistance - (transform.position - v3_targetPoint).magnitude;

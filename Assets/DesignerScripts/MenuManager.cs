@@ -47,7 +47,7 @@ public class MenuManager : MonoBehaviour
     public void DistortFace()
     {
         print("Nedd to reenable the function");
-        //GameManager.x.DistortFace();
+        GameManager.x.DistortFace();
     }
 
     #region Difficulty Selections
@@ -68,7 +68,7 @@ public class MenuManager : MonoBehaviour
     #region Face Controls
     public void ActivateGameplayControl()
     {
-        print("Should've turned the controls on");
+        //print("Should've turned the controls on");
         PlayerController.x.b_CanControl = true;
         if (CamController.x != null)
             CamController.x.GamePosition(false);
@@ -76,7 +76,7 @@ public class MenuManager : MonoBehaviour
 
     public void DisableGameplayControls()
     {
-        print("Face has been turned off");
+        //print("Face has been turned off");
         PlayerController.x.b_CanControl = false;
         if (CamController.x != null)
             CamController.x.MenuPosition(false);
@@ -84,8 +84,8 @@ public class MenuManager : MonoBehaviour
 
     public void ResetFaceToNeutral()
     {
+        //print("Should've reset the face to neutral, but I don't know how");
         GameManager.x.ResetFace();
-        print("Should've reset the face to neutral, but I don't know how");
     }
 
     public void ResumeFace()
