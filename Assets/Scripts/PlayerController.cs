@@ -28,10 +28,13 @@ public class PlayerController : MonoBehaviour
     private Color targetColor;
     private bool b_canControl = true;
     private bool b_playing = true;
-    public bool b_Won { get { return b_won; } }
     private bool b_won = false;
-
+    private float f_score;
+    #endregion
+    #region GetsAndSets
+    public bool b_Won { get { return b_won; } }
     public bool b_CanControl { get { return b_canControl; } set { b_canControl = value; } }
+    public float f_Score { get { return f_score; } }
     #endregion
 
     private void Start()
@@ -49,6 +52,14 @@ public class PlayerController : MonoBehaviour
         V3_screenNormalizationScale = new Vector3(((float)1 / Screen.width), ((float)1 / Screen.height), 1);
 
     }
+    private void Update()
+    {
+
+        if (b_canControl) RecieveTouches();
+        FadePoints();
+        if(b_playing) CheckWinState();
+    }
+
     private void RecieveTouches()
     {
         if (Input.touchCount > 0)
@@ -101,23 +112,18 @@ public class PlayerController : MonoBehaviour
         } 
     } 
 
-    private void Update()
-    {
-
-        if (b_canControl) RecieveTouches();
-        FadePoints();
-        if(b_playing) CheckWinState();
-    }
-
     private void CheckWinState()
     {
         int targ = cp_allControlPoints.Length;
         int cur = 0;
+        f_score = 0;
         foreach (var c in cp_allControlPoints)
         {
             if (c.b_InTargetPoint) cur++;
+            f_score += c.GetScore();
         }
         b_won = cur == targ;
+        b_playing = !b_won;
         
     }
 
