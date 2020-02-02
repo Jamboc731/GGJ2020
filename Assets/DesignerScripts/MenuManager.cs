@@ -65,9 +65,11 @@ public class MenuManager : MonoBehaviour
         print("Should've turned the controls on");
         PlayerController.x.b_CanControl = true;
     }
+
     public void DisableGameplayControls()
     {
         print("Face has been turned off");
+        PlayerController.x.b_CanControl = false;
     }
 
     public void ResetFaceToNeutral()
@@ -78,11 +80,13 @@ public class MenuManager : MonoBehaviour
     public void ResumeFace()
     {
         print("Face has been resumed");
+        ActivateGameplayControl();
     }
 
     public void PauseFace()
     {
         print("Should've paused the face, but I don't know how");
+        DisableGameplayControls();
     }
     #endregion
 

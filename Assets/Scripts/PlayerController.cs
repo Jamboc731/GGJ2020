@@ -75,10 +75,10 @@ public class PlayerController : MonoBehaviour
 
     private void TouchUI()
     {
-        if(Input.touchCount > 0)
+        if (Input.touchCount > 0)
         {
             ray = cam.ScreenPointToRay(Input.touches[0].position);
-            if(Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, menuMask))
+            if (Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, menuMask))
             {
                 IPressable p = hit.collider.GetComponent<IPressable>();
                 if (p != null) p.press();
@@ -100,7 +100,16 @@ public class PlayerController : MonoBehaviour
                 if (Input.touches[i].phase == TouchPhase.Began)
                 {
 
-                    if (Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, controlPointMask))
+
+                    Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, menuMask);
+                    IPressable p;
+                    if (hit.collider != null) hit.collider.GetComponent<IPressable>();
+                    if (p != null) p.press();
+
+                        Physics.Raycast(ray, out hit, -cam.transform.position.z + 10, controlPointMask);
+
+
+                    if (hit.collider != null)
                     {
 
                         if (!lizzy.b_Animating) lizzy.SetAnimationBool("Fusetouching", true);
@@ -115,7 +124,7 @@ public class PlayerController : MonoBehaviour
                     if (Input.touches[i].phase == TouchPhase.Ended)
                     {
                         cp_currentControlPoints[Input.touches[i].fingerId] = null;
-                        AudioManager.x.PlaySFX(touchClip, .8f, 1.2f); 
+                        AudioManager.x.PlaySFX(touchClip, .8f, 1.2f);
 
                     }
                 }
@@ -125,14 +134,14 @@ public class PlayerController : MonoBehaviour
             #endregion
 
         }
-        else 
+        else
         {
             if (b_won) lizzy.SetAnimationBool("Goodjob", true);
             else
                 lizzy.BackToIdle();
             targetColor = Color.clear;
-        } 
-    } 
+        }
+    }
 
     private void CheckWinState()
     {
@@ -146,7 +155,7 @@ public class PlayerController : MonoBehaviour
         }
         b_won = cur == targ;
         b_playing = !b_won;
-        
+
     }
 
     private void FadePoints()
