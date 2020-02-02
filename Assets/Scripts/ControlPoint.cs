@@ -96,8 +96,7 @@ public class ControlPoint : MonoBehaviour
         }
         else
             rb.position = new Vector3(_v3_delta.x, _v3_delta.y, v3_pointStart.z);
-        for (int i = 0; i < tA_bones.Length; i++)
-            tA_bones[i].position = v3A_origins[i] + ((tA_bones[i].position - v3A_origins[i]) + (transform.position - tA_bones[i].position) * fA_boneWeights[i]) / 2;
+        UpdateBones();
     }
     /// <summary>
     /// Set control point position to distort point using lerp
@@ -105,8 +104,7 @@ public class ControlPoint : MonoBehaviour
     public void SetPosition()
     {
         rb.position = v3_distortPoint;
-        for (int i = 0; i < tA_bones.Length; i++)
-            tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
+        UpdateBones();
     }
     /// <summary>
     /// Set Control point to delta for random drifting. Lerp to the generated Vector2
@@ -115,8 +113,7 @@ public class ControlPoint : MonoBehaviour
     public void SetPosition(Vector2 _v2_delta)
     {
         rb.position = Vector3.Lerp(rb.position, _v2_delta, 0.98f);
-        for (int i = 0; i < tA_bones.Length; i++)
-            tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
+        UpdateBones();
 
     }
 
@@ -126,5 +123,16 @@ public class ControlPoint : MonoBehaviour
     public void RandomizeDistortPoint()
     {
         v3_distortPoint = v3_targetPoint + (Random.insideUnitSphere * f_contraint);
+    }
+
+    public void SetToTarget()
+    {
+        transform.position = v3_targetPoint;
+        UpdateBones();
+    }
+    private void UpdateBones()
+    {
+        for (int i = 0; i < tA_bones.Length; i++)
+            tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
     }
 }
