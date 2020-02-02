@@ -66,6 +66,9 @@ public class GameManager : MonoBehaviour
         s_textToShow = s_storyTexts[storyID];
 
         for (int i = 0; i < sttA_targets[storyID].t_targetPoints.Length; i++)
+        {
             controlPoints[i].v3_TargetPoint = sttA_targets[storyID].t_targetPoints[i];
+            controlPoints[i].SetToTarget();
+        }
     }
 }
