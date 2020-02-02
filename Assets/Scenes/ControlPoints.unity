@@ -20,11 +20,11 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientSkyColor: {r: 0.8679245, g: 0.47847676, b: 0.42168033, a: 1}
+  m_AmbientEquatorColor: {r: 0.3584906, g: 0.103150584, b: 0.13364391, a: 1}
+  m_AmbientGroundColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
   m_HaloStrength: 0.5
@@ -33,7 +33,7 @@ RenderSettings:
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
   m_DefaultReflectionMode: 0
-  m_DefaultReflectionResolution: 128
+  m_DefaultReflectionResolution: 16
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1750700769}
+  lizzy: {fileID: 235552870}
   i_maxFingers: 2
   controlPointMask:
     serializedVersion: 2
@@ -263,6 +264,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 209081659}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &235552867 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100084, guid: 21cdb7dc76d70ab479ee647513de3d1f,
+    type: 3}
+  m_PrefabInstance: {fileID: 582445892}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &235552870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 235552867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa0b241803d19549942c28aaa5f9d30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &344027154 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400022, guid: d7724ab6b7ac273438a4b2a7f6f6f87d,
@@ -381,24 +400,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 0.9
   f_driftDelta: 0.5
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 403779894}
   - {fileID: 551591981}
   fA_boneWeights:
   - 1
   - 0.5
+  b_drifitng: 0
 --- !u!54 &556149510
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -512,7 +523,7 @@ PrefabInstance:
     - target: {fileID: 9500000, guid: 21cdb7dc76d70ab479ee647513de3d1f, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 36bda96b86930004ebf5f27833f54ee2, type: 2}
+      objectReference: {fileID: 9100000, guid: 92112d9cfff17c44db9551e9fc3f2413, type: 2}
     - target: {fileID: 13700000, guid: 21cdb7dc76d70ab479ee647513de3d1f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -612,45 +623,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 0.8
   f_driftDelta: 0.1
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0
-      value: 3
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 2056517773}
   - {fileID: 6548847}
@@ -667,6 +642,7 @@ MonoBehaviour:
   - 0.1
   - 0.3
   - 1
+  b_drifitng: 0
 --- !u!54 &702241753
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -838,24 +814,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 0.5
   f_driftDelta: 0.5
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 463088265}
   - {fileID: 551591981}
   fA_boneWeights:
   - 1
   - 0.5
+  b_drifitng: 0
 --- !u!54 &720202774
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -986,45 +954,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 0.8
   f_driftDelta: 0.1
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0
-      value: 3
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 933947570}
   - {fileID: 1708322458}
@@ -1041,6 +973,7 @@ MonoBehaviour:
   - 0.1
   - 0.3
   - 1
+  b_drifitng: 0
 --- !u!54 &1110523114
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1330,27 +1263,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 1.5
   f_driftDelta: 0.1
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 1231449785}
   - {fileID: 557884719}
@@ -1365,6 +1280,7 @@ MonoBehaviour:
   - 0.5
   - 0.2
   - 0.15
+  b_drifitng: 0
 --- !u!54 &1579519803
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1579,51 +1495,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 0.9
   f_driftDelta: 0.5
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: -0.0010482176
-      value: 0.007075472
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.49895158
-      value: 0.52358496
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.6939201
-      value: 0.12971698
-      inSlope: -5.3863635
-      outSlope: -5.3863635
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.17741942
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 1750583163}
   - {fileID: 344027154}
   fA_boneWeights:
   - 1
   - 0.5
+  b_drifitng: 0
 --- !u!54 &1616892306
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1942,8 +1823,6 @@ GameObject:
   - component: {fileID: 1750700770}
   - component: {fileID: 1750700769}
   - component: {fileID: 1750700768}
-  - component: {fileID: 1750700772}
-  - component: {fileID: 1750700771}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1968,8 +1847,8 @@ Camera:
   m_GameObject: {fileID: 1750700767}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0.23362406, g: 0.4716981, b: 0.32958344, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -2015,83 +1894,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1750700771
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750700767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: c764c048f92546241823c89a52eaad70, type: 2}
-  isGlobal: 1
-  blendDistance: 0
-  weight: 1
-  priority: 1
---- !u!114 &1750700772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750700767}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeTrigger: {fileID: 1750700770}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 1
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 1
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 1
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!4 &1876381655 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400090, guid: d7724ab6b7ac273438a4b2a7f6f6f87d,
@@ -2192,24 +1994,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce140731e73553e469927febf2f97944, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  v3_targetPoint: {x: 0, y: 0, z: 0}
   f_contraint: 0
   f_maxDistance: 0.5
   f_driftDelta: 0.5
-  b_useCurve: 0
-  axisToRespect: 0
-  ac_curveToFitFace:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
   tA_bones:
   - {fileID: 1944616182}
   - {fileID: 344027154}
   fA_boneWeights:
   - 1
   - 0.5
+  b_drifitng: 0
 --- !u!54 &1930072652
 Rigidbody:
   m_ObjectHideFlags: 0
