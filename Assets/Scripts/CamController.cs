@@ -6,9 +6,16 @@ using UnityEngine.UI;
 public class CamController : MonoBehaviour
 {
 
+    public static CamController x;
+
     [SerializeField] private Vector3 V3_menuPosition;
     [SerializeField] private Vector3 V3_gamePosition;
     [SerializeField] private Image Im_blackImage;
+
+    private void Start()
+    {
+        x = this;
+    }
 
     public void MenuPosition(float _f_lerpTime, bool _b_showBlack)
     {

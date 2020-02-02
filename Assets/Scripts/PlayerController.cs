@@ -94,7 +94,9 @@ public class PlayerController : MonoBehaviour
         }
         else 
         {
-            lizzy.BackToIdle();
+            if (b_won) lizzy.SetAnimationBool("Goodjob", true);
+            else
+                lizzy.BackToIdle();
             targetColor = Color.clear;
         } 
     } 
@@ -116,6 +118,7 @@ public class PlayerController : MonoBehaviour
             if (c.b_InTargetPoint) cur++;
         }
         b_won = cur == targ;
+        
     }
 
     private void FadePoints()
