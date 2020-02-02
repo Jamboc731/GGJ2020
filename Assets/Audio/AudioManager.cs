@@ -35,7 +35,7 @@ public class AudioManager : MonoBehaviour
     private bool b_CanRepeatVoice;
     private bool b_VoiceCoroutine = true;
 
-    private void Start()
+    private void Awake()
     {
         x = this;
     }

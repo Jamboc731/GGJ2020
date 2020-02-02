@@ -16,5 +16,5 @@ public class LevelSO : ScriptableObject
     [TextArea] public string[] texts;
     public StoryToTargets[] storyTargets;
     public Character[] character;
-
+    public float[] f_segmentTimes;
 }
