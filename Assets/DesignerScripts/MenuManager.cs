@@ -46,7 +46,7 @@ public class MenuManager : MonoBehaviour
 
     public void DistortFace()
     {
-        print("Nedd to reenable the function");
+        //print("Nedd to reenable the function");
         GameManager.x.DistortFace();
     }
 
@@ -90,7 +90,7 @@ public class MenuManager : MonoBehaviour
 
     public void ResumeFace()
     {
-        print("Face has been resumed");
+        //print("Face has been resumed");
         ActivateGameplayControl();
     }
 
