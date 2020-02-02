@@ -51,6 +51,8 @@ public class ControlPoint : MonoBehaviour
     /// Toggle for if the face is currently distorting
     /// </summary>
     private bool b_distorting;
+    public bool b_InTargetPoint { get { return b_inTargetPoint;  } }
+    private bool b_inTargetPoint;
 
     #endregion
     #endregion
@@ -77,6 +79,13 @@ public class ControlPoint : MonoBehaviour
         #region Drift checking
         if (b_drifitng)
             SetPosition(rb.position);
+        #endregion
+        #region Target point check
+        if ((transform.position - v3_targetPoint).magnitude >= (v3_targetPoint + Random.insideUnitSphere).magnitude)
+            b_inTargetPoint = true;
+        else if (b_inTargetPoint == true)
+            b_inTargetPoint = false;
+            
         #endregion
     }
 

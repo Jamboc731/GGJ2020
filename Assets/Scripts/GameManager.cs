@@ -68,7 +68,5 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < targets[storyID].t_targetPoints.Length; i++)
             controlPoints[i].v3_TargetPoint = targets[storyID].t_targetPoints[i];
-
-
     }
 }
