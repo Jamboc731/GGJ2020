@@ -135,4 +135,10 @@ public class ControlPoint : MonoBehaviour
         for (int i = 0; i < tA_bones.Length; i++)
             tA_bones[i].position = v3A_origins[i] + (transform.position - v3A_origins[i]) * fA_boneWeights[i];
     }
+    
+    public float GetScore()
+    {
+        return f_maxDistance - (transform.position - v3_targetPoint).magnitude;
+    }
+
 }
