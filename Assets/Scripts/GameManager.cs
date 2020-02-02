@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject go_background;
     [TextArea] private List<string> s_storyTexts;
     #endregion
+    [SerializeField] private GameObject backObj;
     [SerializeField] [TextArea] private string s_errorText;
     [SerializeField] Timer timer;
     StoryToTargets[] sttA_targets;
@@ -63,10 +64,14 @@ public class GameManager : MonoBehaviour
             go_background = null;
             // Set the level background and all the bones target points
             go_background = levelToLoad.backgroundObject;
-            Instantiate(go_background);
+            GameObject b = Instantiate(go_background, backObj.transform);
+            b.transform.localScale = Vector3.one;
+            b.transform.rotation = backObj.transform.rotation;
+            b.transform.position = backObj.transform.position;
             s_storyTexts = levelToLoad.texts;
             sttA_targets = levelToLoad.storyTargets;
             segmentTimes = levelToLoad.f_segmentTimes;
+            ch_levelCharacter = levelToLoad.character;
             //for (int i = 0; i < levelToLoad.boneOrigins.Length; i++)
             //{
             //    storyToTargets.i_storyID[i] = i;
