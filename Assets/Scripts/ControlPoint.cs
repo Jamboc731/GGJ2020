@@ -145,6 +145,7 @@ public class ControlPoint : MonoBehaviour
     {
         for (int i = 0; i < tA_bones.Length; i++)
             tA_bones[i].position = v3A_origins[i];
+        transform.position = v3_pointStart;
     }
 
 }
