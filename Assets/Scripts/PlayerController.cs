@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     #region PrivateVariables
     private SpriteRenderer[] cp_allControlRenderers;
+    private ControlPoint[] cp_allControlPoints;
     private ControlPoint[] cp_currentControlPoints = new ControlPoint[2];
     private Vector3 V3_screenNormalizationScale;
     private Vector3 V3_facePos = new Vector3(0, 0, 22);
@@ -25,18 +26,21 @@ public class PlayerController : MonoBehaviour
     private Ray ray;
     private Color targetColor;
     private bool b_canControl = true;
+    private bool b_playing = true;
+    public bool b_Won { get { return b_won; } }
+    private bool b_won = false;
 
     public bool b_CanControl { get { return b_canControl; } set { b_canControl = value; } }
     #endregion
 
     private void Start()
     {
-        ControlPoint[] cp = FindObjectsOfType<ControlPoint>();
-        cp_allControlRenderers = new SpriteRenderer[cp.Length];
-        for (int i = 0; i < cp.Length; i++)
+        cp_allControlPoints = FindObjectsOfType<ControlPoint>();
+        cp_allControlRenderers = new SpriteRenderer[cp_allControlPoints.Length];
+        for (int i = 0; i < cp_allControlPoints.Length; i++)
         {
-            cp[i].b_Drifting = true;
-            cp_allControlRenderers[i] = cp[i].GetComponent<SpriteRenderer>();
+            cp_allControlPoints[i].b_Drifting = true;
+            cp_allControlRenderers[i] = cp_allControlPoints[i].GetComponent<SpriteRenderer>();
         }
 
         Screen.orientation = ScreenOrientation.Portrait;
@@ -51,7 +55,18 @@ public class PlayerController : MonoBehaviour
 
         if (b_canControl) RecieveTouches();
         FadePoints();
+        if(b_playing) CheckWinState();
+    }
 
+    private void CheckWinState()
+    {
+        int targ = cp_allControlPoints.Length;
+        int cur = 0;
+        foreach (var c in cp_allControlPoints)
+        {
+            if (c.b_InTargetPoint) cur++;
+        }
+        b_won = cur == targ;
     }
 
     private void FadePoints()
