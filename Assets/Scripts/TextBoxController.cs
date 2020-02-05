@@ -40,6 +40,7 @@ public class TextBoxController : MonoBehaviour
     IEnumerator TextKill(float _f_textTime)
     {
         yield return new WaitForSeconds(f_waitTime + _f_textTime);
+        //MenuManager.x.ActivateGameplayControl();
         gameObject.SetActive(false);
     }
 }

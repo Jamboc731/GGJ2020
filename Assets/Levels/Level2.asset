@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9db857c9120014dad9fb8bbfaf8718, type: 3}
   m_Name: Level2
   m_EditorClassIdentifier: 
-  ID: 0
-  backgroundObject: {fileID: 100160, guid: b13935d87a7918f4c9cb6f1f87e0456c, type: 3}
+  ID: 1
+  backgroundObject: {fileID: 4365785106608997917, guid: 8a5c36b2205dd8b499b8a6b9e5a6a23c,
+    type: 3}
   texts:
   - '"Do you love me Nick? ''Cos I love you!..."'
   - '"I''ve invited my parents over for dinner this weekend, and they''re bringing

@@ -134,7 +134,10 @@ public class ControlPoint : MonoBehaviour
 
     public void SetToTarget()
     {
+        v3_targetPoint.x = -v3_targetPoint.x;
+        v3_targetPoint.z = transform.position.z;
         transform.position = v3_targetPoint;
+
         UpdateBones();
     }
     public void UpdateBones()

@@ -32,7 +32,10 @@ public class GameManager : MonoBehaviour
 
     int storyID;
 
+    GameObject b;
+
     int maxRecursions = 4;
+    private bool fuckingHimUp;
 
     // Start is called before the first frame update
     void Start()
@@ -54,7 +57,6 @@ public class GameManager : MonoBehaviour
 
     public void LoadLevel(int _i_levelID)
     {
-        print("STILL ONLY ONCE");
         gameState = GameStates.loading;
         // Load in parameters for the level
         LevelSO levelToLoad = new LevelSO();
@@ -64,9 +66,9 @@ public class GameManager : MonoBehaviour
         if (levelToLoad != null)
         {
             // Set the level background and all the bones target points
-            Destroy(go_background);
             go_background = levelToLoad.backgroundObject;
-            GameObject b = Instantiate(go_background, backObj.transform);
+            Destroy(b);
+            b = Instantiate(go_background, backObj.transform);
             b.transform.localScale = Vector3.one;
             b.transform.rotation = backObj.transform.rotation;
             b.transform.position = backObj.transform.position;
@@ -74,12 +76,7 @@ public class GameManager : MonoBehaviour
             sttA_targets = levelToLoad.storyTargets;
             segmentTimes = levelToLoad.f_segmentTimes;
             ch_levelCharacter = levelToLoad.character;
-            //for (int i = 0; i < levelToLoad.boneOrigins.Length; i++)
-            //{
-            //    storyToTargets.i_storyID[i] = i;
-            //    for (int j = 0; j < storyToTargets.t_targetPoints.Length; j++)
-            //        storyToTargets.t_targetPoints[j] = levelToLoad.boneOrigins[i][j];
-            //}
+
             SelectStoryText();
             for (int i = 0; i < cp_controlPoints.Length; i++)
             {
@@ -94,39 +91,36 @@ public class GameManager : MonoBehaviour
     {
 
         storyID = Random.Range(0, s_storyTexts.Count);
-        //Debug.Log(storyID);
         ch_currentCharacter = ch_levelCharacter[storyID];
         timer.f_MaxTime = segmentTimes[storyID];
         timer.f_CurrentTime = timer.f_MaxTime;
-        //Debug.Log(timer.f_MaxTime);
         for (int i = 0; i < sttA_targets[storyID].t_targetPoints.Length; i++)
         {
             cp_controlPoints[i].v3_TargetPoint = sttA_targets[storyID].t_targetPoints[i];
             cp_controlPoints[i].SetToTarget();
         }
         PlayAudio.playAudio.PlayVoice(ch_currentCharacter);
-        //Debug.Log(0);
-        //timer.b_Running = true;
+        timer.b_Running = true;
         tb_textBox.DisplayText(s_storyTexts[storyID]);
-        //Debug.Log(1);
-        //s_storyTexts.RemoveAt(storyID);
-        //Debug.Log(2);
         gameState = GameStates.running;
     }
 
     public void DistortFace()
     {
-        StartCoroutine(FUCKHIMUP());
+        if(!fuckingHimUp)
+            StartCoroutine(FUCKHIMUP());
     }
 
     IEnumerator FUCKHIMUP()
     {
+        fuckingHimUp = true;
         for (int i = 0; i < maxRecursions; i++)
         {
             for (int j = 0; j < cp_controlPoints.Length; j++)
                 cp_controlPoints[j].RandomizeDistortPoint(cp_controlPoints[j].v3_pointStart);
             yield return new WaitForSeconds(Time.deltaTime * 5);
         }
+        fuckingHimUp = false;
     }
 
     public void ResetFace()
